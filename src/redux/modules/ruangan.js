@@ -5,31 +5,31 @@ const API_URL = apiUrlConfig + 'api/'
 // ------------------------------------
 // Constants
 // ------------------------------------
-export const GET_DOSEN_DATA_START = 'GET_DOSEN_DATA_START'
-export const GET_DOSEN_DATA_SUCCESS = 'GET_DOSEN_DATA_SUCCESS'
+export const GET_RUANGAN_START = 'GET_RUANGAN_START'
+export const GET_RUANGAN_SUCCESS = 'GET_MK_SUCCESS'
 
 // ------------------------------------
 // Actions
 // ------------------------------------
 
 // ------------------------------------
-// Actions Get user data
+// Actions Get mahasiswa data
 // ------------------------------------
-function getDosenDataStart () {
+function getRuanganStart () {
   return {
-    type: GET_DOSEN_DATA_START
+    type: GET_RUANGAN_START
   }
 }
-function getDosenDataFinish (result) {
+function getRuanganFinish (result) {
   return {
-    type: GET_DOSEN_DATA_SUCCESS,
+    type: GET_RUANGAN_SUCCESS,
     data: result
   }
 }
-export function getDosenData () {
+export function getRuangan () {
   return (dispatch) => {
-    dispatch(getDosenDataStart())
-    return fetch(API_URL + 'dosen', {
+    dispatch(getRuanganStart())
+    return fetch(API_URL + 'ruangan', {
       method: 'get',
       headers: {
         'Accept': 'application/json',
@@ -37,7 +37,7 @@ export function getDosenData () {
       }
     })
     .then((response) => response.json())
-    .then((json) => dispatch(getDosenDataFinish(json)))
+    .then((json) => dispatch(getRuanganFinish(json)))
   }
 }
 
@@ -45,16 +45,16 @@ export function getDosenData () {
 // Reducer
 // ------------------------------------
 let initialState = {
+  isLoading: false
 }
 
-export default function dosenReducers (state = initialState, action) {
+export default function ruanganReducers (state = initialState, action) {
   switch (action.type) {
-    case GET_DOSEN_DATA_START:
+    case GET_RUANGAN_START:
       return Object.assign({}, state, {
-        isLoadingData: true,
-        isRequestingUserData: true
+        isLoadingData: true
       })
-    case GET_DOSEN_DATA_SUCCESS:
+    case GET_RUANGAN_SUCCESS:
       return Object.assign({}, state, {
         isLoadingData: false,
         data: action.data

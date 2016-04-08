@@ -5,31 +5,31 @@ const API_URL = apiUrlConfig + 'api/'
 // ------------------------------------
 // Constants
 // ------------------------------------
-export const GET_DOSEN_DATA_START = 'GET_DOSEN_DATA_START'
-export const GET_DOSEN_DATA_SUCCESS = 'GET_DOSEN_DATA_SUCCESS'
+export const GET_MK_START = 'GET_MK_START'
+export const GET_MK_SUCCESS = 'GET_MK_SUCCESS'
 
 // ------------------------------------
 // Actions
 // ------------------------------------
 
 // ------------------------------------
-// Actions Get user data
+// Actions Get mahasiswa data
 // ------------------------------------
-function getDosenDataStart () {
+function getMkStart () {
   return {
-    type: GET_DOSEN_DATA_START
+    type: GET_MK_START
   }
 }
-function getDosenDataFinish (result) {
+function getMkFinish (result) {
   return {
-    type: GET_DOSEN_DATA_SUCCESS,
+    type: GET_MK_SUCCESS,
     data: result
   }
 }
-export function getDosenData () {
+export function getMk () {
   return (dispatch) => {
-    dispatch(getDosenDataStart())
-    return fetch(API_URL + 'dosen', {
+    dispatch(getMkStart())
+    return fetch(API_URL + 'mk', {
       method: 'get',
       headers: {
         'Accept': 'application/json',
@@ -37,7 +37,7 @@ export function getDosenData () {
       }
     })
     .then((response) => response.json())
-    .then((json) => dispatch(getDosenDataFinish(json)))
+    .then((json) => dispatch(getMkFinish(json)))
   }
 }
 
@@ -45,16 +45,16 @@ export function getDosenData () {
 // Reducer
 // ------------------------------------
 let initialState = {
+  isLoading: false
 }
 
-export default function dosenReducers (state = initialState, action) {
+export default function mataKuliahReducers (state = initialState, action) {
   switch (action.type) {
-    case GET_DOSEN_DATA_START:
+    case GET_MK_START:
       return Object.assign({}, state, {
-        isLoadingData: true,
-        isRequestingUserData: true
+        isLoadingData: true
       })
-    case GET_DOSEN_DATA_SUCCESS:
+    case GET_MK_SUCCESS:
       return Object.assign({}, state, {
         isLoadingData: false,
         data: action.data

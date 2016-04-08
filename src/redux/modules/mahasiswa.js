@@ -61,15 +61,20 @@ function getMahasiswaDataByNimStart () {
 function getMahasiswaDataByNimFinish (result) {
   console.log(result.data[0])
   var splitTanggalLahir = result.data[0].tanggal_lahir.split('-')
+  var splitKelas = result.data[0].id_kelas.split('_')
   var tahun = splitTanggalLahir[0]
   var bulan = splitTanggalLahir[1]
   var tanggal = splitTanggalLahir[2]
+  var kelas = splitKelas[0]
+  var tahunMasuk = splitKelas[1]
   return {
     type: GET_MAHASISWA_DATA_BY_NIM_SUCCESS,
     data: result,
     tanggal: tanggal,
     bulan: bulan,
-    tahun: tahun
+    tahun: tahun,
+    kelas: kelas,
+    tahun_masuk: tahunMasuk
   }
 }
 export function getMahasiswaDataByNim (nim) {
@@ -199,6 +204,7 @@ export default function mahasiswaReducers (state = initialState, action) {
       })
     case GET_MAHASISWA_DATA_SUCCESS:
       return Object.assign({}, state, {
+        isLoadingData: false,
         data: action.data
       })
     case GET_MAHASISWA_DATA_BY_NIM_START:

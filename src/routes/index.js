@@ -12,6 +12,9 @@ import MahasiswaView from 'views/MahasiswaView/MahasiswaView'
 import AddMahasiswaView from 'views/MahasiswaView/AddMahasiswaView'
 import MahasiswaEditView from 'views/MahasiswaView/MahasiswaEditView'
 import DosenView from 'views/DosenView/DosenView'
+import KelasView from 'views/KelasView/KelasView'
+import MataKuliahView from 'views/MataKuliahView/MataKuliahView'
+import RuanganView from 'views/RuanganView/RuanganView'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 	// Check this repo:
 	// https://github.com/zilverline/react-tap-event-plugin
@@ -24,5 +27,8 @@ export default (store) => (
     <Route component={AddMahasiswaView} path='/mahasiswa/add' />
     <Route component={MahasiswaEditView} path='/mahasiswa/:nim' />
     <Route component={DosenView} path='/dosen' />
+    <Route component={KelasView} path='/kelas' />
+    <Route component={MataKuliahView} path='/mata-kuliah' />
+    <Route component={RuanganView} path='/ruangan' />
   </Route>
 )

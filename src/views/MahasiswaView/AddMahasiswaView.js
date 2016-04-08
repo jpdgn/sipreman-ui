@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import { connect } from 'react-redux'
 import TopMenu from '../../components/Menu/TopMenu'
-import NewMahasiswaForm from '../../components/Mahasiswa/NewMahasiswaForm'
+import MahasiswaForm from '../../components/Mahasiswa/MahasiswaForm'
 
 const mapStateToProps = (state) => ({
   isLoading: state.mahasiswa.isLoading,
@@ -20,8 +20,8 @@ export class AddMahasiswaView extends Component {
       <div>
         <TopMenu />
         <div className='row'>
-          <div className='ui grid'>
-            <NewMahasiswaForm
+          <div className='ui grid container'>
+            <MahasiswaForm
               isLoading={this.props.isLoading}
               message={this.props.message}/>
           </div>

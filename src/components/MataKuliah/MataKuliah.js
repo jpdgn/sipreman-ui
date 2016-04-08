@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-class Dosen extends React.Component {
+class MataKuliah extends React.Component {
   static propTypes = {
     data: PropTypes.object,
     isLoading: PropTypes.bool
@@ -11,28 +11,26 @@ class Dosen extends React.Component {
       <div className='ui text loader'>Loading</div>
     </div>
     if (this.props.data) {
-      var listDosen = this.props.data.data
-      for (var i = 0; i < listDosen.length; i++) {
+      var listMk = this.props.data.data
+      for (var i = 0; i < listMk.length; i++) {
         row.push(
           <tr>
-            <td>{listDosen[i].nip}</td>
-            <td>{listDosen[i].nama}</td>
-            <td>{listDosen[i].email}</td>
-            <td>{listDosen[i].jabatan}</td>
+            <td>{listMk[i].kode_mk}</td>
+            <td>{listMk[i].nama_mk}</td>
+            <td>{listMk[i].bobot}</td>
           </tr>
         )
       }
     }
     return (
       <div className='twelve wide stretched column'>
-      {this.props.isLoading ? loader : ''}
+        {this.props.isLoading ? loader : ''}
         <table className='ui celled table'>
           <thead>
             <tr>
-              <th>NIP</th>
-              <th>Nama</th>
-              <th>Email</th>
-              <th>Jabatan</th>
+              <th>KODE MATA KULIAH</th>
+              <th>NAMA MATA KULIAH</th>
+              <th>BOBOT SKS</th>
             </tr>
           </thead>
           <tbody>
@@ -40,7 +38,7 @@ class Dosen extends React.Component {
           </tbody>
           <tfoot>
             <tr>
-              <th colSpan='4'>
+              <th colSpan='3'>
                 <div
                   onClick={this.handleNewData}
                   className='ui left floated primary labeled icon button'>
@@ -67,4 +65,4 @@ class Dosen extends React.Component {
   }
 }
 
-export default Dosen
+export default MataKuliah

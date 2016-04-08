@@ -8,13 +8,15 @@ import { getMahasiswaData } from '../../redux/modules/mahasiswa'
 
 const mapStateToProps = (state) => ({
   data: state.mahasiswa.data,
-  nim: state.mahasiswa.nim
+  nim: state.mahasiswa.nim,
+  isLoading: state.mahasiswa.isLoadingData
 })
 
 export class MahasiswaView extends Component {
   static propTypes = {
     data: PropTypes.object,
-    dispatch: PropTypes.func
+    dispatch: PropTypes.func,
+    isLoading: PropTypes.bool
   }
 
   componentWillMount () {
@@ -27,7 +29,7 @@ export class MahasiswaView extends Component {
         <div className='row'>
           <div className='ui grid container'>
             <Menu />
-            <Mahasiswa nim={this.props.nim} data={this.props.data}/>
+            <Mahasiswa nim={this.props.nim} data={this.props.data} isLoading={this.props.isLoading}/>
           </div>
         </div>
       </div>

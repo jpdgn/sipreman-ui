@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-class Dosen extends React.Component {
+class Ruangan extends React.Component {
   static propTypes = {
     data: PropTypes.object,
     isLoading: PropTypes.bool
@@ -11,28 +11,30 @@ class Dosen extends React.Component {
       <div className='ui text loader'>Loading</div>
     </div>
     if (this.props.data) {
-      var listDosen = this.props.data.data
-      for (var i = 0; i < listDosen.length; i++) {
+      var listRuangan = this.props.data.data
+      for (var i = 0; i < listRuangan.length; i++) {
         row.push(
           <tr>
-            <td>{listDosen[i].nip}</td>
-            <td>{listDosen[i].nama}</td>
-            <td>{listDosen[i].email}</td>
-            <td>{listDosen[i].jabatan}</td>
+            <td>{listRuangan[i].kode_ruangan}</td>
+            <td>{listRuangan[i].nama_ruangan}</td>
+            <td>{listRuangan[i].lantai}</td>
+            <td>{listRuangan[i].kapasitas}</td>
+            <td>{listRuangan[i].keterangan}</td>
           </tr>
         )
       }
     }
     return (
       <div className='twelve wide stretched column'>
-      {this.props.isLoading ? loader : ''}
+        {this.props.isLoading ? loader : ''}
         <table className='ui celled table'>
           <thead>
             <tr>
-              <th>NIP</th>
-              <th>Nama</th>
-              <th>Email</th>
-              <th>Jabatan</th>
+              <th>KODE RUANGAN</th>
+              <th>NAMA RUANGAN</th>
+              <th>LANTAI</th>
+              <th>KAPASITAS</th>
+              <th>KETERANGAN</th>
             </tr>
           </thead>
           <tbody>
@@ -40,7 +42,7 @@ class Dosen extends React.Component {
           </tbody>
           <tfoot>
             <tr>
-              <th colSpan='4'>
+              <th colSpan='5'>
                 <div
                   onClick={this.handleNewData}
                   className='ui left floated primary labeled icon button'>
@@ -67,4 +69,4 @@ class Dosen extends React.Component {
   }
 }
 
-export default Dosen
+export default Ruangan

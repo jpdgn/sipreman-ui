@@ -2,16 +2,16 @@ import React, {Component, PropTypes} from 'react'
 import { connect } from 'react-redux'
 import Menu from '../../components/Menu/Menu'
 import TopMenu from '../../components/Menu/TopMenu'
-import Dosen from '../../components/Dosen/Dosen'
+import Ruangan from '../../components/Ruangan/Ruangan'
 
-import { getDosenData } from '../../redux/modules/dosen'
+import { getRuangan } from '../../redux/modules/ruangan'
 
 const mapStateToProps = (state) => ({
-  data: state.dosen.data,
-  isLoading: state.dosen.isLoadingData
+  data: state.ruangan.data,
+  isLoading: state.ruangan.isLoadingData
 })
 
-export class DosenView extends Component {
+export class RuanganView extends Component {
   static propTypes = {
     data: PropTypes.object,
     dispatch: PropTypes.func,
@@ -19,7 +19,7 @@ export class DosenView extends Component {
   }
 
   componentWillMount () {
-    this.props.dispatch(getDosenData())
+    this.props.dispatch(getRuangan())
   }
   render () {
     return (
@@ -28,7 +28,7 @@ export class DosenView extends Component {
         <div className='row'>
           <div className='ui grid container'>
             <Menu/>
-            <Dosen data={this.props.data} isLoading={this.props.isLoading}/>
+            <Ruangan data={this.props.data} isLoading={this.props.isLoading}/>
           </div>
         </div>
       </div>
@@ -36,4 +36,4 @@ export class DosenView extends Component {
   }
 }
 
-export default connect(mapStateToProps)(DosenView)
+export default connect(mapStateToProps)(RuanganView)

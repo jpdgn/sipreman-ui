@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-class Dosen extends React.Component {
+class Kelas extends React.Component {
   static propTypes = {
     data: PropTypes.object,
     isLoading: PropTypes.bool
@@ -11,28 +11,28 @@ class Dosen extends React.Component {
       <div className='ui text loader'>Loading</div>
     </div>
     if (this.props.data) {
-      var listDosen = this.props.data.data
-      for (var i = 0; i < listDosen.length; i++) {
+      var listKelas = this.props.data.data
+      for (var i = 0; i < listKelas.length; i++) {
         row.push(
           <tr>
-            <td>{listDosen[i].nip}</td>
-            <td>{listDosen[i].nama}</td>
-            <td>{listDosen[i].email}</td>
-            <td>{listDosen[i].jabatan}</td>
+            <td>{listKelas[i].kode_kelas}</td>
+            <td>{listKelas[i].nama_kelas}</td>
+            <td>{listKelas[i].tahun_masuk}</td>
+            <td>{listKelas[i].jumlah_mahasiswa}</td>
           </tr>
         )
       }
     }
     return (
       <div className='twelve wide stretched column'>
-      {this.props.isLoading ? loader : ''}
+        {this.props.isLoading ? loader : ''}
         <table className='ui celled table'>
           <thead>
             <tr>
-              <th>NIP</th>
-              <th>Nama</th>
-              <th>Email</th>
-              <th>Jabatan</th>
+              <th>KODE KELAS</th>
+              <th>NAMA KELAS</th>
+              <th>TAHUN MASUK</th>
+              <th>JUMLAH MAHASISWA</th>
             </tr>
           </thead>
           <tbody>
@@ -67,4 +67,4 @@ class Dosen extends React.Component {
   }
 }
 
-export default Dosen
+export default Kelas

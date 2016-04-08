@@ -15,7 +15,8 @@ const validate = (values) => {
 
 class Mahasiswa extends React.Component {
   static propTypes = {
-    data: PropTypes.object
+    data: PropTypes.object,
+    isLoading: PropTypes.bool
   }
   handleHapusData = (nim) => {
     let { dispatch } = this.props
@@ -24,21 +25,27 @@ class Mahasiswa extends React.Component {
     console.log(nim)
     dispatch(nimOnDelete(nim))
   }
+
   render () {
     const {fields: {nimOnDelete}} = this.props
     var row = []
-    var listMahasiswa = this.props.data.data
-    for (var i = 0; i < listMahasiswa.length; i++) {
-      row.push(
-        <tr>
-          <td><Link to={'/mahasiswa/' + listMahasiswa[i].nim}>{listMahasiswa[i].nim}</Link></td>
-          <td>{listMahasiswa[i].nama}</td>
-          <td>{listMahasiswa[i].email}</td>
-          <td>{listMahasiswa[i].nama_kelas}</td>
-          <td>{listMahasiswa[i].nama_prodi}</td>
-          <td><a onClick={this.handleHapusData.bind(this, listMahasiswa[i].nim)}><i className='trash icon'/></a></td>
-        </tr>
-      )
+    var loader = <div className='ui active inverted dimmer'>
+      <div className='ui text loader'>Loading</div>
+    </div>
+    if (this.props.data) {
+      var listMahasiswa = this.props.data.data
+      for (var i = 0; i < listMahasiswa.length; i++) {
+        row.push(
+          <tr>
+            <td><Link to={'/mahasiswa/' + listMahasiswa[i].nim}>{listMahasiswa[i].nim}</Link></td>
+            <td>{listMahasiswa[i].nama}</td>
+            <td>{listMahasiswa[i].email}</td>
+            <td>{listMahasiswa[i].nama_kelas}</td>
+            <td>{listMahasiswa[i].nama_prodi}</td>
+            <td><a onClick={this.handleHapusData.bind(this, listMahasiswa[i].nim)}><i className='trash icon'/></a></td>
+          </tr>
+        )
+      }
     }
     var tanggalLahirOption = []
     var tahunLahirOption = []
@@ -48,8 +55,12 @@ class Mahasiswa extends React.Component {
     for (var j = 1950; j <= 1995; j++) {
       tahunLahirOption.push(<option value={j} key={j}>{j}</option>)
     }
+    var fontStyle = {
+      color: 'white'
+    }
     return (
       <div className='twelve wide column'>
+        {this.props.isLoading ? loader : ''}
         <table className='ui sortable celled table'>
           <thead>
             <tr>
@@ -70,7 +81,7 @@ class Mahasiswa extends React.Component {
                 <div
                   onClick={this.handleNewData}
                   className='ui left floated primary labeled icon button'>
-                  <i className='user icon'></i> Tambah Data
+                  <i className='user icon'></i><Link style={fontStyle} to='mahasiswa/add'> Tambah Data</Link>
                 </div>
                 <div
                   className='ui right floated pagination menu'>

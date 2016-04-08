@@ -5,7 +5,7 @@ import { updateMahasiswa } from '../../redux/modules/mahasiswa'
 
 const form = 'updateMahasiswaForm'
 const fields = ['nim', 'nama', 'email', 'kelas', 'noHp', 'tanggal', 'bulan',
-'tahun', 'alamatRumah', 'alamatTinggal', 'deviceId']
+'tahun', 'alamatRumah', 'alamatTinggal', 'deviceId', 'tahunMasuk']
 
 class MahasiswaForm extends React.Component {
   static propTypes = {
@@ -32,13 +32,16 @@ class MahasiswaForm extends React.Component {
     var tanggal = this.props.values.tanggal
     var bulan = this.props.values.bulan
     var tahun = this.props.values.tahun
+    var kelas = this.props.values.kelas
+    var tahunMasuk = this.props.values.tahunMasuk
     var tanggalLahir = tahun + '-' + bulan + '-' + tanggal
+    var idKelas = kelas + '_' + tahunMasuk
     var nim = this.props.values.nim
     var mahasiswa = {
-      nim: this.props.values.nim,
+      nim: nim,
       nama: this.props.values.nama,
       email: this.props.values.email,
-      id_kelas: this.props.values.kelas,
+      id_kelas: idKelas,
       no_hp: this.props.values.noHp,
       tanggal_lahir: tanggalLahir,
       alamat_rumah: this.props.values.alamatRumah,
@@ -51,14 +54,18 @@ class MahasiswaForm extends React.Component {
 
   render () {
     const {fields: {nim, nama, email, kelas, noHp, tanggal, bulan, tahun, alamatRumah,
-      alamatTinggal, deviceId}} = this.props
+      alamatTinggal, deviceId, tahunMasuk}} = this.props
     var tanggalLahirOption = []
     var tahunLahirOption = []
+    var tahunMasukOption = []
     for (var i = 1; i <= 31; i++) {
       tanggalLahirOption.push(<option value={i} key={i}>{i}</option>)
     }
     for (var j = 1950; j <= 1995; j++) {
       tahunLahirOption.push(<option value={j} key={j}>{j}</option>)
+    }
+    for (var k = 2011; k <= 2016; k++) {
+      tahunMasukOption.push(<option value={k} key={k}>{k}</option>)
     }
     return (
       <div className='ten wide stretched column'>
@@ -96,7 +103,7 @@ class MahasiswaForm extends React.Component {
                   placeholder='Email'
                 />
               </div>
-              <div className='eight wide field'>
+              <div className='four wide field'>
                 <label>Kelas</label>
                 <select
                   className='ui search dropdown'
@@ -107,6 +114,14 @@ class MahasiswaForm extends React.Component {
                   <option value='TKJB'>TKJ B</option>
                   <option value='TMJA'>TMJ A</option>
                   <option value='TMJB'>TMJ B</option>
+                </select>
+              </div>
+              <div className='four wide field'>
+                <label>Tahun Masuk</label>
+                <select
+                  className='ui search dropdown'
+                  {...tahunMasuk}>
+                  {tahunMasukOption}
                 </select>
               </div>
             </div>

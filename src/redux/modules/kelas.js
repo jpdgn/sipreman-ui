@@ -5,31 +5,31 @@ const API_URL = apiUrlConfig + 'api/'
 // ------------------------------------
 // Constants
 // ------------------------------------
-export const GET_DOSEN_DATA_START = 'GET_DOSEN_DATA_START'
-export const GET_DOSEN_DATA_SUCCESS = 'GET_DOSEN_DATA_SUCCESS'
+export const GET_KELAS_START = 'GET_KELAS_START'
+export const GET_KELAS_SUCCESS = 'GET_KELAS_SUCCESS'
 
 // ------------------------------------
 // Actions
 // ------------------------------------
 
 // ------------------------------------
-// Actions Get user data
+// Actions Get mahasiswa data
 // ------------------------------------
-function getDosenDataStart () {
+function getKelasStart () {
   return {
-    type: GET_DOSEN_DATA_START
+    type: GET_KELAS_START
   }
 }
-function getDosenDataFinish (result) {
+function getKelasFinish (result) {
   return {
-    type: GET_DOSEN_DATA_SUCCESS,
+    type: GET_KELAS_SUCCESS,
     data: result
   }
 }
-export function getDosenData () {
+export function getKelas () {
   return (dispatch) => {
-    dispatch(getDosenDataStart())
-    return fetch(API_URL + 'dosen', {
+    dispatch(getKelasStart())
+    return fetch(API_URL + 'kelas', {
       method: 'get',
       headers: {
         'Accept': 'application/json',
@@ -37,7 +37,7 @@ export function getDosenData () {
       }
     })
     .then((response) => response.json())
-    .then((json) => dispatch(getDosenDataFinish(json)))
+    .then((json) => dispatch(getKelasFinish(json)))
   }
 }
 
@@ -45,16 +45,16 @@ export function getDosenData () {
 // Reducer
 // ------------------------------------
 let initialState = {
+  isLoading: false
 }
 
-export default function dosenReducers (state = initialState, action) {
+export default function kelasReducers (state = initialState, action) {
   switch (action.type) {
-    case GET_DOSEN_DATA_START:
+    case GET_KELAS_START:
       return Object.assign({}, state, {
-        isLoadingData: true,
-        isRequestingUserData: true
+        isLoadingData: true
       })
-    case GET_DOSEN_DATA_SUCCESS:
+    case GET_KELAS_SUCCESS:
       return Object.assign({}, state, {
         isLoadingData: false,
         data: action.data
