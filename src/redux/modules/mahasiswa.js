@@ -61,7 +61,7 @@ function getMahasiswaDataByNimStart () {
 function getMahasiswaDataByNimFinish (result) {
   console.log(result.data[0])
   var splitTanggalLahir = result.data[0].tanggal_lahir.split('-')
-  var splitKelas = result.data[0].id_kelas.split('_')
+  var splitKelas = result.data[0].kelas_id.split('_')
   var tahun = splitTanggalLahir[0]
   var bulan = splitTanggalLahir[1]
   var tanggal = splitTanggalLahir[2]

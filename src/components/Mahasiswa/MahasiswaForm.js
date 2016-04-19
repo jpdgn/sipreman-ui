@@ -41,11 +41,10 @@ class MahasiswaForm extends React.Component {
       nim: nim,
       nama: this.props.values.nama,
       email: this.props.values.email,
-      id_kelas: idKelas,
-      no_hp: this.props.values.noHp,
+      kelas_id: idKelas,
+      nomor_telepon: this.props.values.noHp,
       tanggal_lahir: tanggalLahir,
-      alamat_rumah: this.props.values.alamatRumah,
-      alamat_tinggal: this.props.values.alamatTinggal,
+      alamat: this.props.values.alamatRumah,
       device_id: this.props.values.deviceId
     }
     console.log(mahasiswa)
@@ -59,7 +58,7 @@ class MahasiswaForm extends React.Component {
     var tahunLahirOption = []
     var tahunMasukOption = []
     for (var i = 1; i <= 31; i++) {
-      tanggalLahirOption.push(<option value={i} key={i}>{i}</option>)
+      tanggalLahirOption.push(<option value={i < 10 ? '0' + i : i} key={i}>{i < 10 ? '0' + i : i}</option>)
     }
     for (var j = 1950; j <= 1995; j++) {
       tahunLahirOption.push(<option value={j} key={j}>{j}</option>)
@@ -146,15 +145,15 @@ class MahasiswaForm extends React.Component {
                 <div className='six wide field'>
                   <select className='ui dropdown' {...bulan}>
                     <option value=''>Bulan</option>
-                    <option value='1'>Januari</option>
-                    <option value='2'>Februari</option>
-                    <option value='3'>Maret</option>
-                    <option value='4'>April</option>
-                    <option value='5'>Mei</option>
-                    <option value='6'>Juni</option>
-                    <option value='7'>Juli</option>
-                    <option value='8'>Agustus</option>
-                    <option value='9'>September</option>
+                    <option value='01'>Januari</option>
+                    <option value='02'>Februari</option>
+                    <option value='03'>Maret</option>
+                    <option value='04'>April</option>
+                    <option value='05'>Mei</option>
+                    <option value='06'>Juni</option>
+                    <option value='07'>Juli</option>
+                    <option value='08'>Agustus</option>
+                    <option value='09'>September</option>
                     <option value='10'>Oktober</option>
                     <option value='11'>November</option>
                     <option value='12'>Desember</option>
@@ -168,14 +167,9 @@ class MahasiswaForm extends React.Component {
               </div>
             </div>
             <div className='fields'>
-              <div className='eight wide field'>
+              <div className='sixteen wide field'>
                 <label>Alamat Rumah</label>
                 <textarea placeholder='Alamat Rumah' rows='3' {...alamatRumah}>
-                </textarea>
-              </div>
-              <div className='eight wide field'>
-                <label>Alamat Tinggal</label>
-                <textarea placeholder='Alamat Tinggal' rows='3' {...alamatTinggal}>
                 </textarea>
               </div>
             </div>

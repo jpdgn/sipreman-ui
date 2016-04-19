@@ -29,12 +29,11 @@ export default combineReducers({
             email: { value: action.data.data[0].email },
             kelas: { value: action.kelas },
             tahunMasuk: { value: action.tahun_masuk },
-            noHp: { value: action.data.data[0].no_hp },
+            noHp: { value: action.data.data[0].nomor_telepon },
             tanggal: { value: action.tanggal },
             bulan: { value: action.bulan },
             tahun: { value: action.tahun },
-            alamatRumah: { value: action.data.data[0].alamat_rumah },
-            alamatTinggal: { value: action.data.data[0].alamat_tinggal },
+            alamatRumah: { value: action.data.data[0].alamat },
             deviceId: { value: action.data.data[0].device_id }
           }
         default:
