@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router'
 
 class Ruangan extends React.Component {
   static propTypes = {
@@ -15,26 +16,24 @@ class Ruangan extends React.Component {
       for (var i = 0; i < listRuangan.length; i++) {
         row.push(
           <tr>
-            <td>{listRuangan[i].kode_ruangan}</td>
-            <td>{listRuangan[i].nama_ruangan}</td>
+            <td><Link to={'ruangan/' + (listRuangan[i].kode)}>{listRuangan[i].kode}</Link></td>
+            <td>{listRuangan[i].ruangan}</td>
             <td>{listRuangan[i].lantai}</td>
-            <td>{listRuangan[i].kapasitas}</td>
-            <td>{listRuangan[i].keterangan}</td>
+            <td>{listRuangan[i].status}</td>
           </tr>
         )
       }
     }
     return (
-      <div className='twelve wide stretched column'>
+      <div className='ui main grid'>
         {this.props.isLoading ? loader : ''}
-        <table className='ui celled table'>
+        <table className='ui very basic striped sortable celled table'>
           <thead>
             <tr>
               <th>KODE RUANGAN</th>
               <th>NAMA RUANGAN</th>
               <th>LANTAI</th>
-              <th>KAPASITAS</th>
-              <th>KETERANGAN</th>
+              <th>STATUS RUANGAN</th>
             </tr>
           </thead>
           <tbody>
@@ -42,7 +41,7 @@ class Ruangan extends React.Component {
           </tbody>
           <tfoot>
             <tr>
-              <th colSpan='5'>
+              <th colSpan='4'>
                 <div
                   onClick={this.handleNewData}
                   className='ui left floated primary labeled icon button'>

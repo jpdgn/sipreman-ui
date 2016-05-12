@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router'
 
 class MataKuliah extends React.Component {
   static propTypes = {
@@ -15,17 +16,17 @@ class MataKuliah extends React.Component {
       for (var i = 0; i < listMk.length; i++) {
         row.push(
           <tr>
-            <td>{listMk[i].kode_mk}</td>
-            <td>{listMk[i].nama_mk}</td>
+            <td><Link to={'mata-kuliah/' + (listMk[i].kode)}>{listMk[i].kode}</Link></td>
+            <td>{listMk[i].mata_kuliah}</td>
             <td>{listMk[i].bobot}</td>
           </tr>
         )
       }
     }
     return (
-      <div className='twelve wide stretched column'>
+      <div className='ui main grid'>
         {this.props.isLoading ? loader : ''}
-        <table className='ui celled table'>
+        <table className='ui very basic striped sortable celled table'>
           <thead>
             <tr>
               <th>KODE MATA KULIAH</th>

@@ -7,6 +7,12 @@ const API_URL = apiUrlConfig + 'api/'
 // ------------------------------------
 export const GET_KELAS_START = 'GET_KELAS_START'
 export const GET_KELAS_SUCCESS = 'GET_KELAS_SUCCESS'
+export const GET_KELAS_BY_ID_START = 'GET_KELAS_BY_ID_START'
+export const GET_KELAS_BY_ID_SUCCESS = 'GET_KELAS_BY_ID_SUCCESS'
+export const ADD_KELAS_START = 'ADD_KELAS_START'
+export const ADD_KELAS_SUCCESS = 'ADD_KELAS_SUCCESS'
+export const UPDATE_KELAS_START = 'UPDATE_KELAS_START'
+export const UPDATE_KELAS_SUCCESS = 'UPDATE_KELAS_SUCCESS'
 
 // ------------------------------------
 // Actions
@@ -41,6 +47,92 @@ export function getKelas () {
   }
 }
 
+function getKelasByIdStart () {
+  return {
+    type: GET_KELAS_BY_ID_START
+  }
+}
+function getKelasByIdFinish (result) {
+  return {
+    type: GET_KELAS_BY_ID_SUCCESS,
+    data: result
+  }
+}
+export function getKelasById (id) {
+  return (dispatch) => {
+    dispatch(getKelasByIdStart())
+    return fetch(API_URL + 'kelas/' + id, {
+      method: 'get',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then((response) => response.json())
+    .then((json) => dispatch(getKelasByIdFinish(json)))
+  }
+}
+
+// ------------------------------------
+// Add Kelas Action
+// ------------------------------------
+function addKelasStart () {
+  return {
+    type: ADD_KELAS_START
+  }
+}
+function addKelasFinish (result) {
+  return {
+    type: ADD_KELAS_SUCCESS,
+    data: result
+  }
+}
+export function addKelas (kelas) {
+  return (dispatch) => {
+    dispatch(addKelasStart())
+    return fetch(API_URL + 'kelas', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(kelas)
+    })
+    .then((response) => response.json())
+    .then((json) => dispatch(addKelasFinish(json)))
+  }
+}
+
+// ------------------------------------
+// Add Kelas Action
+// ------------------------------------
+function updateKelasStart () {
+  return {
+    type: UPDATE_KELAS_START
+  }
+}
+function updateKelasFinish (result) {
+  return {
+    type: UPDATE_KELAS_SUCCESS,
+    data: result
+  }
+}
+export function updateKelas (kode, kelas) {
+  return (dispatch) => {
+    dispatch(updateKelasStart())
+    return fetch(API_URL + 'kelas', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(kelas)
+    })
+    .then((response) => response.json())
+    .then((json) => dispatch(updateKelasFinish(json)))
+  }
+}
+
 // ------------------------------------
 // Reducer
 // ------------------------------------
@@ -59,8 +151,34 @@ export default function kelasReducers (state = initialState, action) {
         isLoadingData: false,
         data: action.data
       })
+    case GET_KELAS_BY_ID_START:
+      return Object.assign({}, state, {
+        isLoadingData: true
+      })
+    case GET_KELAS_BY_ID_SUCCESS:
+      return Object.assign({}, state, {
+        isLoadingData: false,
+        data: action.data
+      })
+    case ADD_KELAS_START:
+      return Object.assign({}, state, {
+        isLoadingData: true
+      })
+    case ADD_KELAS_SUCCESS:
+      return Object.assign({}, state, {
+        isLoadingData: false,
+        data: action.data
+      })
+    case UPDATE_KELAS_START:
+      return Object.assign({}, state, {
+        isLoadingData: true
+      })
+    case UPDATE_KELAS_SUCCESS:
+      return Object.assign({}, state, {
+        isLoadingData: false,
+        data: action.data
+      })
     default:
       return state
   }
 }
-

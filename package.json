@@ -65,6 +65,9 @@
   "license": "MIT",
   "dependencies": {
     "debug": "^2.2.0",
+    "gulp-copy": "0.0.2",
+    "gulp-print": "^2.0.1",
+    "gulp-rtlcss": "^1.0.0",
     "history": "^2.0.0",
     "isomorphic-fetch": "^2.2.1",
     "koa": "^2.0.0-alpha.3",
@@ -75,6 +78,7 @@
     "material-ui": "^0.14.4",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
+    "react-modal": "^1.2.1",
     "react-redux": "^4.0.0",
     "react-router": "^2.0.0",
     "react-router-active-component": "^4.0.0-rc.0",

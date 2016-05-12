@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router'
 
 class Kelas extends React.Component {
   static propTypes = {
@@ -12,27 +13,31 @@ class Kelas extends React.Component {
     </div>
     if (this.props.data) {
       var listKelas = this.props.data.data
+      var pageTotal = Math.ceil(listKelas.length / 5)
+      var page = []
+      for (var a = 0; a < pageTotal; a++) {
+        page.push(
+          <a className='item'>{a + 1}</a>
+        )
+      }
+      console.log(pageTotal)
       for (var i = 0; i < listKelas.length; i++) {
         row.push(
           <tr>
-            <td>{listKelas[i].kode_kelas}</td>
-            <td>{listKelas[i].nama_kelas}</td>
-            <td>{listKelas[i].tahun_masuk}</td>
-            <td>{listKelas[i].jumlah_mahasiswa}</td>
+            <td><Link to={'kelas/' + (listKelas[i].kode)}>{listKelas[i].kode}</Link></td>
+            <td>{listKelas[i].kelas.toUpperCase()}</td>
           </tr>
         )
       }
     }
     return (
-      <div className='twelve wide stretched column'>
+      <div className='ui main grid'>
         {this.props.isLoading ? loader : ''}
-        <table className='ui celled table'>
+        <table className='ui very basic striped sortable celled table'>
           <thead>
             <tr>
               <th>KODE KELAS</th>
               <th>NAMA KELAS</th>
-              <th>TAHUN MASUK</th>
-              <th>JUMLAH MAHASISWA</th>
             </tr>
           </thead>
           <tbody>
@@ -40,7 +45,7 @@ class Kelas extends React.Component {
           </tbody>
           <tfoot>
             <tr>
-              <th colSpan='4'>
+              <th colSpan='2'>
                 <div
                   onClick={this.handleNewData}
                   className='ui left floated primary labeled icon button'>
@@ -50,10 +55,7 @@ class Kelas extends React.Component {
                   <a className='icon item'>
                     <i className='left chevron icon'></i>
                   </a>
-                  <a className='item'>1</a>
-                  <a className='item'>2</a>
-                  <a className='item'>3</a>
-                  <a className='item'>4</a>
+                  {page}
                   <a className='icon item'>
                     <i className='right chevron icon'></i>
                   </a>

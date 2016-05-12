@@ -61,20 +61,15 @@ function getMahasiswaDataByNimStart () {
 function getMahasiswaDataByNimFinish (result) {
   console.log(result.data[0])
   var splitTanggalLahir = result.data[0].tanggal_lahir.split('-')
-  var splitKelas = result.data[0].kelas_id.split('_')
   var tahun = splitTanggalLahir[0]
   var bulan = splitTanggalLahir[1]
   var tanggal = splitTanggalLahir[2]
-  var kelas = splitKelas[0]
-  var tahunMasuk = splitKelas[1]
   return {
     type: GET_MAHASISWA_DATA_BY_NIM_SUCCESS,
-    data: result,
+    data: result.data[0],
     tanggal: tanggal,
     bulan: bulan,
-    tahun: tahun,
-    kelas: kelas,
-    tahun_masuk: tahunMasuk
+    tahun: tahun
   }
 }
 export function getMahasiswaDataByNim (nim) {
@@ -135,7 +130,7 @@ export function updateMahasiswa (nim, mahasiswa) {
 }
 
 // ------------------------------------
-// Actions ADD NEW mahasiswa 
+// Actions ADD NEW mahasiswa
 // ------------------------------------
 
 function addMahasiswaStart () {
@@ -162,7 +157,7 @@ function addMahasiswaFinish (result) {
 
 export function addMahasiswa (mahasiswa) {
   return (dispatch) => {
-    dispatch(updateMahasiswaStart())
+    dispatch(addMahasiswaStart())
     return fetch(API_URL + 'mahasiswa/', {
       method: 'post',
       headers: {
@@ -172,17 +167,17 @@ export function addMahasiswa (mahasiswa) {
       body: JSON.stringify(mahasiswa)
     })
     .then((response) => response.json())
-    .then((json) => dispatch(updateMahasiswaFinish(json)))
+    .then((json) => dispatch(addMahasiswaFinish(json)))
   }
 }
 
-function setNimToDelete(nim) {
+function setNimToDelete (nim) {
   return {
     type: SET_NIM_TO_DELETE,
     nim: nim
   }
 }
-export function nimOnDelete(nim) {
+export function nimOnDelete (nim) {
   return (dispatch) => {
     dispatch(setNimToDelete(nim))
   }
@@ -192,7 +187,8 @@ export function nimOnDelete(nim) {
 // Reducer
 // ------------------------------------
 let initialState = {
-  isLoading: false
+  isLoading: false,
+  successUpdate: false
 }
 
 export default function mahasiswaReducers (state = initialState, action) {
@@ -223,11 +219,13 @@ export default function mahasiswaReducers (state = initialState, action) {
     case UPDATE_MAHASISWA_SUCCESS:
       return Object.assign({}, state, {
         isLoading: false,
+        successUpdate: true,
         message: action.message
       })
     case UPDATE_MAHASISWA_FAILED:
       return Object.assign({}, state, {
         isLoading: false,
+        successUpdate: false,
         message: action.message
       })
     case ADD_MAHASISWA_START:

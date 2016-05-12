@@ -16,7 +16,8 @@ export class MahasiswaView extends Component {
   static propTypes = {
     data: PropTypes.object,
     dispatch: PropTypes.func,
-    isLoading: PropTypes.bool
+    isLoading: PropTypes.bool,
+    nim: PropTypes.string
   }
 
   componentWillMount () {
@@ -29,7 +30,10 @@ export class MahasiswaView extends Component {
         <div className='row'>
           <div className='ui grid container'>
             <Menu />
-            <Mahasiswa nim={this.props.nim} data={this.props.data} isLoading={this.props.isLoading}/>
+            <Mahasiswa
+              nim={this.props.nim}
+              data={this.props.data}
+              isLoading={this.props.isLoading}/>
           </div>
         </div>
       </div>

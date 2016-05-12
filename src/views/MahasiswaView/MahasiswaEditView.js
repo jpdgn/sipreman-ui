@@ -5,34 +5,54 @@ import TopMenu from '../../components/Menu/TopMenu'
 import MahasiswaForm from '../../components/Mahasiswa/MahasiswaForm'
 
 import { getMahasiswaDataByNim } from '../../redux/modules/mahasiswa'
+import { getKelas } from '../../redux/modules/kelas'
+import { getSemester } from '../../redux/modules/semester'
+import { getAkademik } from '../../redux/modules/akademik'
 
 const mapStateToProps = (state) => ({
   data: state.mahasiswa.data,
   isLoading: state.mahasiswa.isLoading,
-  message: state.mahasiswa.message
+  successUpdate: state.mahasiswa.successUpdate,
+  message: state.mahasiswa.message,
+  kelas: state.kelas.data,
+  semester: state.semester.data,
+  akademik: state.akademik.data
 })
 
 export class MahasiswaEditView extends Component {
   static propTypes = {
     data: PropTypes.object,
     dispatch: PropTypes.func,
-    params: PropTypes.string
+    params: PropTypes.string,
+    isLoading: PropTypes.bool,
+    successUpdate: PropTypes.bool,
+    message: PropTypes.string,
+    kelas: PropTypes.object,
+    semester: PropTypes.object,
+    akademik: PropTypes.object
   }
 
   componentWillMount () {
     this.props.dispatch(getMahasiswaDataByNim(this.props.params.nim))
+    this.props.dispatch(getKelas())
+    this.props.dispatch(getSemester())
+    this.props.dispatch(getAkademik())
   }
   render () {
     return (
       <div>
         <TopMenu />
         <div className='row'>
-          <div className='ui grid'>
+          <div className='ui grid container'>
             <Menu />
             <MahasiswaForm
               data={this.props.data}
               isLoading={this.props.isLoading}
-              message={this.props.message}/>
+              message={this.props.message}
+              updating={this.props.successUpdate}
+              kelas={this.props.kelas}
+              semester={this.props.semester}
+              akademik={this.props.akademik} />
           </div>
         </div>
       </div>

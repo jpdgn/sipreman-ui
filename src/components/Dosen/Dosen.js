@@ -1,10 +1,19 @@
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router'
+import NewDosenForm from './NewDosenForm'
 
 class Dosen extends React.Component {
   static propTypes = {
     data: PropTypes.object,
-    isLoading: PropTypes.bool
+    message: PropTypes.string,
+    isLoading: PropTypes.bool,
+    jabatan: PropTypes.object
   }
+
+  handleAdd = () => {
+    console.log('Add clicked')
+  }
+
   render () {
     var row = []
     var loader = <div className='ui active inverted dimmer'>
@@ -15,8 +24,8 @@ class Dosen extends React.Component {
       for (var i = 0; i < listDosen.length; i++) {
         row.push(
           <tr>
-            <td>{listDosen[i].nip}</td>
-            <td>{listDosen[i].nama}</td>
+            <td><Link to={'/dosen/' + listDosen[i].nip}>{listDosen[i].nip}</Link></td>
+            <td>{listDosen[i].nama_dosen}</td>
             <td>{listDosen[i].email}</td>
             <td>{listDosen[i].jabatan}</td>
           </tr>
@@ -24,9 +33,9 @@ class Dosen extends React.Component {
       }
     }
     return (
-      <div className='twelve wide stretched column'>
-      {this.props.isLoading ? loader : ''}
-        <table className='ui celled table'>
+      <div className='ui main grid'>
+        {this.props.isLoading ? loader : ''}
+        <table className='ui very basic striped sortable celled table'>
           <thead>
             <tr>
               <th>NIP</th>
@@ -42,9 +51,9 @@ class Dosen extends React.Component {
             <tr>
               <th colSpan='4'>
                 <div
-                  onClick={this.handleNewData}
-                  className='ui left floated primary labeled icon button'>
-                  <i className='user icon'></i> Tambah Data
+                  className='ui left floated primary labeled icon button'
+                  onClick={this.handleAdd}>
+                    <i className='user icon'></i>Tambah Data
                 </div>
                 <div className='ui right floated pagination menu'>
                   <a className='icon item'>
@@ -62,6 +71,19 @@ class Dosen extends React.Component {
             </tr>
           </tfoot>
         </table>
+        <div className='ui long modal active'>
+          <div className='header'>Tambah Data Dosen</div>
+          <div className='content'>
+            <NewDosenForm
+              isLoading={this.props.isLoading}
+              message={this.props.message}
+              jabatan={this.props.jabatan}/>
+          </div>
+          <div className='actions'>
+            <div className='ui button'>Batal</div>
+            <div className='ui green button'>Simpan</div>
+          </div>
+        </div>
       </div>
     )
   }

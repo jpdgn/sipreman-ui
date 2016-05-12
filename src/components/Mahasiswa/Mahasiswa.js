@@ -16,7 +16,9 @@ const validate = (values) => {
 class Mahasiswa extends React.Component {
   static propTypes = {
     data: PropTypes.object,
-    isLoading: PropTypes.bool
+    isLoading: PropTypes.bool,
+    dispatch: PropTypes.func,
+    fields: PropTypes.object
   }
   handleHapusData = (nim) => {
     let { dispatch } = this.props
@@ -29,7 +31,7 @@ class Mahasiswa extends React.Component {
   render () {
     const {fields: {nimOnDelete}} = this.props
     var row = []
-    var loader = <div className='ui active inverted dimmer'>
+    var loader = <div className='ui active dimmer'>
       <div className='ui text loader'>Loading</div>
     </div>
     if (this.props.data) {
@@ -38,10 +40,11 @@ class Mahasiswa extends React.Component {
         row.push(
           <tr>
             <td><Link to={'/mahasiswa/' + listMahasiswa[i].nim}>{listMahasiswa[i].nim}</Link></td>
-            <td>{listMahasiswa[i].nama}</td>
+            <td>{listMahasiswa[i].nama_mhs}</td>
             <td>{listMahasiswa[i].email}</td>
-            <td>{listMahasiswa[i].nama_kelas}</td>
-            <td>{listMahasiswa[i].nama_prodi}</td>
+            <td>{listMahasiswa[i].kelas}</td>
+            <td>{listMahasiswa[i].akademik}</td>
+            <td>{listMahasiswa[i].semester}</td>
             <td><a onClick={this.handleHapusData.bind(this, listMahasiswa[i].nim)}><i className='trash icon'/></a></td>
           </tr>
         )
@@ -59,16 +62,17 @@ class Mahasiswa extends React.Component {
       color: 'white'
     }
     return (
-      <div className='twelve wide column'>
+      <div className='ui main grid'>
         {this.props.isLoading ? loader : ''}
-        <table className='ui sortable celled table'>
+        <table className='ui very basic sortable striped celled table'>
           <thead>
             <tr>
               <th>NIM</th>
               <th className='sorted ascending'>Nama</th>
               <th>Email</th>
               <th>Kelas</th>
-              <th>Prodi</th>
+              <th>Akademik</th>
+              <th>Semester</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -77,11 +81,11 @@ class Mahasiswa extends React.Component {
           </tbody>
           <tfoot>
             <tr>
-              <th colSpan='6'>
+              <th colSpan='7'>
                 <div
-                  onClick={this.handleNewData}
-                  className='ui left floated primary labeled icon button'>
-                  <i className='user icon'></i><Link style={fontStyle} to='mahasiswa/add'> Tambah Data</Link>
+                  onClick={this.handleNewData}>
+                  <Link className='ui left floated primary labeled icon button' style={fontStyle}
+                    to='add/mahasiswa'><i className='user icon'></i>Tambah Data</Link>
                 </div>
                 <div
                   className='ui right floated pagination menu'>
