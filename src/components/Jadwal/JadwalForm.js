@@ -114,21 +114,49 @@ class JadwalForm extends React.Component {
               <div className='fields'>
                 <div className='eight wide field'>
                   <label>Jam Mulai</label>
-                  <input
-                    {...jam_mulai}
-                    type='text'
-                    name='jam_mulai'
-                    placeholder='Jam Mulai'
-                  />
+                  <select {...jam_mulai}>
+                    <option value='07:30:00'>07:30:00</option>
+                    <option value='08:20:00'>08:20:00</option>
+                    <option value='09:10:00'>09:10:00</option>
+                    <option value='10:00:00'>10:00:00</option>
+                    <option value='10:50:00'>10:50:00</option>
+                    <option value='11:40:00'>11:40:00</option>
+                    <option value='12:30:00'>12:30:00</option>
+                    <option value='13:20:00'>13:20:00</option>
+                    <option value='14:10:00'>14:10:00</option>
+                    <option value='15:00:00'>15:00:00</option>
+                    <option value='15:50:00'>15:50:00</option>
+                    <option value='16:40:00'>16:40:00</option>
+                    <option value='17:30:00'>17:30:00</option>
+                    <option value='18:20:00'>18:20:00</option>
+                    <option value='19:10:00'>19:10:00</option>
+                    <option value='20:00:00'>20:00:00</option>
+                    <option value='20:50:00'>20:50:00</option>
+                    <option value='21:40:00'>21:40:00</option>
+                  </select>
                 </div>
-                <div className='four wide field'>
+                <div className='eight wide field'>
                   <label>Jam Selesai</label>
-                  <input
-                    {...jam_selesai}
-                    type='text'
-                    name='jam_selesai'
-                    placeholder='Jam Selesai'
-                  />
+                    <select {...jam_selesai}>
+                      <option value='07:30:00'>07:30:00</option>
+                      <option value='08:20:00'>08:20:00</option>
+                      <option value='09:10:00'>09:10:00</option>
+                      <option value='10:00:00'>10:00:00</option>
+                      <option value='10:50:00'>10:50:00</option>
+                      <option value='11:40:00'>11:40:00</option>
+                      <option value='12:30:00'>12:30:00</option>
+                      <option value='13:20:00'>13:20:00</option>
+                      <option value='14:10:00'>14:10:00</option>
+                      <option value='15:00:00'>15:00:00</option>
+                      <option value='15:50:00'>15:50:00</option>
+                      <option value='16:40:00'>16:40:00</option>
+                      <option value='17:30:00'>17:30:00</option>
+                      <option value='18:20:00'>18:20:00</option>
+                      <option value='19:10:00'>19:10:00</option>
+                      <option value='20:00:00'>20:00:00</option>
+                      <option value='20:50:00'>20:50:00</option>
+                      <option value='21:40:00'>21:40:00</option>
+                    </select>
                 </div>
               </div>
               <div className='field'>

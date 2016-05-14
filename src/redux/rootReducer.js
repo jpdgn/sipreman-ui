@@ -13,6 +13,7 @@ import jabatan from './modules/jabatan'
 import jadwal from './modules/jadwal'
 import semester from './modules/semester'
 import akademik from './modules/akademik'
+import kehadiran from './modules/kehadiran'
 
 export const GET_MAHASISWA_DATA_BY_NIM_SUCCESS = 'GET_MAHASISWA_DATA_BY_NIM_SUCCESS'
 export const GET_DOSEN_BY_NIP_SUCCESS = 'GET_DOSEN_BY_NIP_SUCCESS'
@@ -36,6 +37,7 @@ export default combineReducers({
   jadwal,
   semester,
   akademik,
+  kehadiran,
   counter,
   router,
   form: formReducer.plugin({

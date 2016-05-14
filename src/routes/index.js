@@ -35,6 +35,7 @@ import JabatanEditView from 'views/JabatanView/JabatanEditView'
 import JadwalView from 'views/JadwalView/JadwalView'
 import AddJadwalView from 'views/JadwalView/AddJadwalView'
 import JadwalEditView from 'views/JadwalView/JadwalEditView'
+import KehadiranView from 'views/KehadiranView/KehadiranView'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 	// Check this repo:
 	// https://github.com/zilverline/react-tap-event-plugin
@@ -70,5 +71,6 @@ export default (store) => (
     <Route component={JadwalView} path='/jadwal' />
     <Route component={AddJadwalView} path='/add/jadwal' />
     <Route component={JadwalEditView} path='/jadwal/:id' />
+    <Route component={KehadiranView} path='/kehadiran' />
   </Route>
 )

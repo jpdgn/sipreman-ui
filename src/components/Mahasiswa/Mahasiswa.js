@@ -34,7 +34,7 @@ class Mahasiswa extends React.Component {
     var loader = <div className='ui active dimmer'>
       <div className='ui text loader'>Loading</div>
     </div>
-    if (this.props.data) {
+    if (this.props.data || this.props.data.data) {
       var listMahasiswa = this.props.data.data
       for (var i = 0; i < listMahasiswa.length; i++) {
         row.push(

@@ -32,6 +32,9 @@ class Menu extends React.Component {
         <Link to='/jadwal' className='item' activeClassName='active'>
           Jadwal
         </Link>
+        <Link to='/kehadiran' className='item' activeClassName='active'>
+          Kehadiran
+        </Link>
       </div>
     )
   }

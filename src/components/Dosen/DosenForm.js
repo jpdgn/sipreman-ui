@@ -122,36 +122,36 @@ class DosenForm extends React.Component {
                   placeholder='No HP'
                 />
               </div>
-              <div className='field'>
-                <label>Tanggal Lahir</label>
-                <div className='fields'>
-                  <div className='six wide field'>
-                    <select className='ui dropdown' {...tanggal}>
-                      {tanggalLahirOption}
-                    </select>
-                  </div>
-                  <div className='six wide field'>
-                    <select className='ui dropdown' {...bulan}>
-                      <option value=''>Bulan</option>
-                      <option value='01'>Januari</option>
-                      <option value='02'>Februari</option>
-                      <option value='03'>Maret</option>
-                      <option value='04'>April</option>
-                      <option value='05'>Mei</option>
-                      <option value='06'>Juni</option>
-                      <option value='07'>Juli</option>
-                      <option value='08'>Agustus</option>
-                      <option value='09'>September</option>
-                      <option value='10'>Oktober</option>
-                      <option value='11'>November</option>
-                      <option value='12'>Desember</option>
-                    </select>
-                  </div>
-                  <div className='six wide field'>
-                    <select className='ui dropdown' {...tahun}>
-                      {tahunLahirOption}
-                    </select>
-                  </div>
+              <div className='fields'>
+                <div className='six wide field'>
+                  <label>Tanggal Lahir</label>
+                  <select className='ui dropdown' {...tanggal}>
+                    {tanggalLahirOption}
+                  </select>
+                </div>
+                <div className='six wide field'>
+                  <label>Bulan Lahir</label>
+                  <select className='ui dropdown' {...bulan}>
+                    <option value=''>Pilih Bulan</option>
+                    <option value='01'>Januari</option>
+                    <option value='02'>Februari</option>
+                    <option value='03'>Maret</option>
+                    <option value='04'>April</option>
+                    <option value='05'>Mei</option>
+                    <option value='06'>Juni</option>
+                    <option value='07'>Juli</option>
+                    <option value='08'>Agustus</option>
+                    <option value='09'>September</option>
+                    <option value='10'>Oktober</option>
+                    <option value='11'>November</option>
+                    <option value='12'>Desember</option>
+                  </select>
+                </div>
+                <div className='six wide field'>
+                  <label>Tahun Lahir</label>
+                  <select className='ui dropdown' {...tahun}>
+                    {tahunLahirOption}
+                  </select>
                 </div>
               </div>
               <div className='fields'>
