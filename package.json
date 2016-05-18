@@ -64,6 +64,7 @@
   "author": "David Zukowski <david@zuko.me> (http://zuko.me)",
   "license": "MIT",
   "dependencies": {
+    "better-npm-run": "0.0.8",
     "debug": "^2.2.0",
     "gulp-copy": "0.0.2",
     "gulp-print": "^2.0.1",
