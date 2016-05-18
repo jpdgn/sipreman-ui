@@ -137,13 +137,13 @@ class MahasiswaForm extends React.Component {
               <div className='fields'>
                 <div className='six wide field'>
                   <label>Semester</label>
-                  <select {...semester}>
+                  <select className='ui dropdown'{...semester}>
                     {semesterOption}
                   </select>
                 </div>
                 <div className='six wide field'>
                   <label>Akademik</label>
-                  <select {...akademik}>
+                  <select className='ui dropdown'{...akademik}>
                     {akademikOption}
                   </select>
                 </div>

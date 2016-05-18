@@ -11,6 +11,8 @@ export const GET_DOSEN_BY_NIP_START = 'GET_DOSEN_BY_NIP_START'
 export const GET_DOSEN_BY_NIP_SUCCESS = 'GET_DOSEN_BY_NIP_SUCCESS'
 export const ADD_DOSEN_START = 'ADD_DOSEN_START'
 export const ADD_DOSEN_FINISH = 'ADD_DOSEN_FINISH'
+export const UPDATE_DOSEN_START = 'UPDATE_DOSEN_START'
+export const UPDATE_DOSEN_FINISH = 'UPDATE_DOSEN_FINISH'
 
 // ------------------------------------
 // Actions
@@ -121,6 +123,36 @@ export function addDosen (dosen) {
 }
 
 // ------------------------------------
+// Actions Update Dosen
+// ------------------------------------
+function updateDosenStart () {
+  return {
+    type: UPDATE_DOSEN_START
+  }
+}
+function updateDosenFinish (result) {
+  return {
+    type: UPDATE_DOSEN_FINISH,
+    data: result
+  }
+}
+export function updateDosen (nip, dosen) {
+  return (dispatch) => {
+    dispatch(updateDosenStart())
+    return fetch(API_URL + 'dosen/' + nip, {
+      method: 'put',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(dosen)
+    })
+    .then((response) => response.json())
+    .then((json) => dispatch(updateDosenFinish(json)))
+  }
+}
+
+// ------------------------------------
 // Reducer
 // ------------------------------------
 let initialState = {
@@ -154,6 +186,16 @@ export default function dosenReducers (state = initialState, action) {
         data: action.data
       })
     case ADD_DOSEN_FINISH:
+      return Object.assign({}, state, {
+        isLoadingData: false,
+        data: action.data
+      })
+    case UPDATE_DOSEN_START:
+      return Object.assign({}, state, {
+        isLoadingData: true,
+        data: action.data
+      })
+    case UPDATE_DOSEN_FINISH:
       return Object.assign({}, state, {
         isLoadingData: false,
         data: action.data

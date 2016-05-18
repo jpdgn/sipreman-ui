@@ -106,7 +106,7 @@ class JadwalForm extends React.Component {
                 </div>
                 <div className='eight wide field'>
                   <label>Hari</label>
-                  <select {...hari}>
+                  <select className='ui dropdown'{...hari}>
                     {hariOption}
                   </select>
                 </div>
@@ -114,7 +114,7 @@ class JadwalForm extends React.Component {
               <div className='fields'>
                 <div className='eight wide field'>
                   <label>Jam Mulai</label>
-                  <select {...jam_mulai}>
+                  <select className='ui dropdown' {...jam_mulai}>
                     <option value='07:30:00'>07:30:00</option>
                     <option value='08:20:00'>08:20:00</option>
                     <option value='09:10:00'>09:10:00</option>
@@ -137,7 +137,7 @@ class JadwalForm extends React.Component {
                 </div>
                 <div className='eight wide field'>
                   <label>Jam Selesai</label>
-                    <select {...jam_selesai}>
+                    <select className='ui dropdown' {...jam_selesai}>
                       <option value='07:30:00'>07:30:00</option>
                       <option value='08:20:00'>08:20:00</option>
                       <option value='09:10:00'>09:10:00</option>
@@ -161,7 +161,7 @@ class JadwalForm extends React.Component {
               </div>
               <div className='field'>
                 <label>Kelas</label>
-                <select {...kelas}>
+                <select className='ui dropdown' {...kelas}>
                   {kelasOption}
                 </select>
               </div>
@@ -188,14 +188,14 @@ class JadwalForm extends React.Component {
               <div className='fields'>
                 <div className='sixteen wide field'>
                   <label>Mata Kuliah</label>
-                  <select {...mata_kuliah}>
+                  <select className='ui dropdown' {...mata_kuliah}>
                     {mataKuliahOption}
                   </select>
                 </div>
               </div>
               <div className='field'>
                 <label>Dosen</label>
-                <select {...dosen}>
+                <select className='ui dropdown' {...dosen}>
                   {dosenOption}
                 </select>
               </div>

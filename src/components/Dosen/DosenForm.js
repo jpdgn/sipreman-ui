@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 // import { Link } from 'react-router'
 import { reduxForm } from 'redux-form'
-import { updateMahasiswa } from '../../redux/modules/mahasiswa'
+import { updateDosen } from '../../redux/modules/dosen'
 
 const form = 'updateDosenForm'
 const fields = ['nip', 'nama', 'email', 'jabatan', 'noHp', 'tanggal', 'bulan',
@@ -23,27 +23,19 @@ class DosenForm extends React.Component {
 
   handleSubmit = () => {
     let { dispatch } = this.props
-    var tanggal = this.props.values.tanggal
-    var bulan = this.props.values.bulan
-    var tahun = this.props.values.tahun
-    var kelas = this.props.values.kelas
-    var tahunMasuk = this.props.values.tahunMasuk
-    var tanggalLahir = tahun + '-' + bulan + '-' + tanggal
-    var idKelas = kelas
-    var nim = this.props.values.nim
-    var mahasiswa = {
-      nim: nim,
-      nama: this.props.values.nama,
+    var nip = this.props.values.nip
+    var dosen = {
+      nama_dosen: this.props.values.nama,
       email: this.props.values.email,
-      kelas_id: idKelas,
-      tahun_masuk: tahunMasuk,
+      id_jabatan: this.props.values.jabatan,
       nomor_telepon: this.props.values.noHp,
-      tanggal_lahir: tanggalLahir,
-      alamat: this.props.values.alamatRumah,
+      tanggal_lahir: this.props.values.tanggal_lahir,
+      alamat_rumah: this.props.values.alamatRumah,
+      alamat_tinggal: this.props.values.alamatRumah,
       device_id: this.props.values.deviceId
     }
-    console.log(mahasiswa)
-    dispatch(updateMahasiswa(nim, mahasiswa))
+    console.log(dosen)
+    dispatch(updateDosen(nip, dosen))
   }
 
   render () {
@@ -77,7 +69,6 @@ class DosenForm extends React.Component {
                   <label>NIM</label>
                   <input
                     {...nip}
-                    disabled
                     type='text'
                     name='NIP'
                     placeholder='NIP'

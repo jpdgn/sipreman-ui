@@ -123,7 +123,7 @@ function addKehadiranStart () {
   }
 }
 function addKehadiranFinish (result) {
-  console.log(result);
+  console.log(result)
   return {
     type: ADD_KEHADIRAN_SUCCESS,
     data: result
@@ -154,7 +154,7 @@ function updateKehadiranStart () {
   }
 }
 function updateKehadiranFinish (result) {
-  console.log(result);
+  console.log(result)
   return {
     type: UPDATE_KEHADIRAN_SUCCESS,
     data: result
@@ -185,7 +185,7 @@ function filterKehadiranStart () {
   }
 }
 function filterKehadiranFinish (result) {
-  console.log(result);
+  console.log(result)
   return {
     type: FILTER_KEHADIRAN_SUCCESS,
     data: result
