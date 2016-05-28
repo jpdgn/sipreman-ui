@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import { connect } from 'react-redux'
 import Menu from '../../components/Menu/Menu'
 import TopMenu from '../../components/Menu/TopMenu'
-import NewProdiForm from '../../components/Prodi/NewProdiForm'
+import AddProdiForm from '../../components/Prodi/AddProdiForm'
 
 import { getJurusan } from '../../redux/modules/jurusan'
 
@@ -33,7 +33,7 @@ export class AddProdiView extends Component {
         <div className='row'>
           <div className='ui grid container'>
             <Menu />
-            <NewProdiForm
+            <AddProdiForm
               data={this.props.data}
               isLoading={this.props.isLoading}
               message={this.props.message}

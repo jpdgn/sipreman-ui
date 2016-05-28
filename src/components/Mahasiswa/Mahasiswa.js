@@ -34,11 +34,11 @@ class Mahasiswa extends React.Component {
     var loader = <div className='ui active dimmer'>
       <div className='ui text loader'>Loading</div>
     </div>
-    if (this.props.data || this.props.data.data) {
+    if (this.props.data && this.props.data.data) {
       var listMahasiswa = this.props.data.data
       for (var i = 0; i < listMahasiswa.length; i++) {
         row.push(
-          <tr>
+          <tr key={i}>
             <td><Link to={'/mahasiswa/' + listMahasiswa[i].nim}>{listMahasiswa[i].nim}</Link></td>
             <td>{listMahasiswa[i].nama_mhs}</td>
             <td>{listMahasiswa[i].email}</td>

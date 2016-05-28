@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import { connect } from 'react-redux'
 import Menu from '../../components/Menu/Menu'
 import TopMenu from '../../components/Menu/TopMenu'
-import NewJabatanForm from '../../components/Jabatan/NewJabatanForm'
+import AddJabatanForm from '../../components/Jabatan/AddJabatanForm'
 
 
 const mapStateToProps = (state) => ({
@@ -28,7 +28,7 @@ export class AddJabatanView extends Component {
         <div className='row'>
           <div className='ui grid container'>
             <Menu />
-            <NewJabatanForm
+            <AddJabatanForm
               data={this.props.data}
               isLoading={this.props.isLoading}
               message={this.props.message}/>

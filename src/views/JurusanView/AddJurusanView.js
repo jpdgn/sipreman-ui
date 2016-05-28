@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import { connect } from 'react-redux'
 import Menu from '../../components/Menu/Menu'
 import TopMenu from '../../components/Menu/TopMenu'
-import NewJurusanForm from '../../components/Jurusan/NewJurusanForm'
+import AddJurusanForm from '../../components/Jurusan/AddJurusanForm'
 
 
 const mapStateToProps = (state) => ({
@@ -28,7 +28,7 @@ export class AddJurusanView extends Component {
         <div className='row'>
           <div className='ui grid container'>
             <Menu />
-            <NewJurusanForm
+            <AddJurusanForm
               data={this.props.data}
               isLoading={this.props.isLoading}
               message={this.props.message}/>

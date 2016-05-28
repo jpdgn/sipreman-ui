@@ -42,7 +42,8 @@ export function getMahasiswaData () {
       method: 'get',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-access-token': window.localStorage.getItem('auth-key')
       }
     })
     .then((response) => response.json())
@@ -79,7 +80,8 @@ export function getMahasiswaDataByNim (nim) {
       method: 'get',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-access-token': window.localStorage.getItem('auth-key')
       }
     })
     .then((response) => response.json())
@@ -120,7 +122,8 @@ export function updateMahasiswa (nim, mahasiswa) {
       method: 'put',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-access-token': window.localStorage.getItem('auth-key')
       },
       body: JSON.stringify(mahasiswa)
     })
@@ -162,7 +165,8 @@ export function addMahasiswa (mahasiswa) {
       method: 'post',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-access-token': window.localStorage.getItem('auth-key')
       },
       body: JSON.stringify(mahasiswa)
     })
@@ -251,4 +255,3 @@ export default function mahasiswaReducers (state = initialState, action) {
       return state
   }
 }
-

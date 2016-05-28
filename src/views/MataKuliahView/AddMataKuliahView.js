@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import { connect } from 'react-redux'
 import Menu from '../../components/Menu/Menu'
 import TopMenu from '../../components/Menu/TopMenu'
-import NewMataKuliahForm from '../../components/MataKuliah/NewMataKuliahForm'
+import AddMataKuliahForm from '../../components/MataKuliah/AddMataKuliahForm'
 
 const mapStateToProps = (state) => ({
   isLoading: state.kelas.isLoading,
@@ -31,7 +31,7 @@ export class AddMataKuliahView extends Component {
             <div className='ui main grid'>
               <div className='sixteen wide stretched column'>
                 <div className='ui segment'>
-                  <NewMataKuliahForm
+                  <AddMataKuliahForm
                     isLoading={this.props.isLoading}
                     message={this.props.message}/>
                 </div>

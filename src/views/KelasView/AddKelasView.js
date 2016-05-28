@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import { connect } from 'react-redux'
 import Menu from '../../components/Menu/Menu'
 import TopMenu from '../../components/Menu/TopMenu'
-import NewKelasForm from '../../components/Kelas/NewKelasForm'
+import AddKelasForm from '../../components/Kelas/AddKelasForm'
 
 import { getProdi } from '../../redux/modules/prodi'
 
@@ -36,7 +36,7 @@ export class AddKelasView extends Component {
             <div className='ui main grid'>
               <div className='sixteen wide stretched column'>
                 <div className='ui segment'>
-                  <NewKelasForm
+                  <AddKelasForm
                     isLoading={this.props.isLoading}
                     message={this.props.message}
                     prodi={this.props.prodi}/>

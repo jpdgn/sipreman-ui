@@ -39,7 +39,8 @@ export function getKelas () {
       method: 'get',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-access-token': window.localStorage.getItem('auth-key')
       }
     })
     .then((response) => response.json())
@@ -65,7 +66,8 @@ export function getKelasById (id) {
       method: 'get',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-access-token': window.localStorage.getItem('auth-key')
       }
     })
     .then((response) => response.json())
@@ -94,7 +96,8 @@ export function addKelas (kelas) {
       method: 'post',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-access-token': window.localStorage.getItem('auth-key')
       },
       body: JSON.stringify(kelas)
     })
@@ -124,7 +127,8 @@ export function updateKelas (kode, kelas) {
       method: 'post',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-access-token': window.localStorage.getItem('auth-key')
       },
       body: JSON.stringify(kelas)
     })

@@ -1,1 +1,2 @@
-export const apiUrlConfig = 'http://localhost:3003/'
+// export const apiUrlConfig = 'http://sipreman.herokuapp.com/'
+export const apiUrlConfig = 'http://localhost:3000/'

@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import { connect } from 'react-redux'
 import Menu from '../../components/Menu/Menu'
 import TopMenu from '../../components/Menu/TopMenu'
-import NewJadwalForm from '../../components/Jadwal/NewJadwalForm'
+import AddJadwalForm from '../../components/Jadwal/AddJadwalForm'
 
 import { getKelas } from '../../redux/modules/kelas'
 import { getSemester } from '../../redux/modules/semester'
@@ -53,7 +53,7 @@ export class AddJadwalView extends Component {
         <div className='row'>
           <div className='ui grid container'>
             <Menu />
-            <NewJadwalForm
+            <AddJadwalForm
               data={this.props.data}
               isLoading={this.props.isLoading}
               message={this.props.message}

@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import { connect } from 'react-redux'
 import Menu from '../../components/Menu/Menu'
 import TopMenu from '../../components/Menu/TopMenu'
-import NewDosenForm from '../../components/Dosen/NewDosenForm'
+import AddDosenForm from '../../components/Dosen/AddDosenForm'
 
 import { getJabatan } from '../../redux/modules/jabatan'
 
@@ -36,7 +36,7 @@ export class AddDosenView extends Component {
             <div className='ui main grid'>
               <div className='sixteen wide stretched column'>
                 <div className='ui segment'>
-                  <NewDosenForm
+                  <AddDosenForm
                     isLoading={this.props.isLoading}
                     message={this.props.message}
                     jabatan={this.props.jabatan}/>

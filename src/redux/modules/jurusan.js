@@ -39,7 +39,8 @@ export function getJurusan () {
       method: 'get',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-access-token': window.localStorage.getItem('auth-key')
       }
     })
     .then((response) => response.json())
@@ -68,7 +69,8 @@ export function getJurusanById (id) {
       method: 'get',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-access-token': window.localStorage.getItem('auth-key')
       }
     })
     .then((response) => response.json())

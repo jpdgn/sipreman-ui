@@ -43,7 +43,8 @@ export function getJadwal () {
       method: 'get',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-access-token': window.localStorage.getItem('auth-key')
       }
     })
     .then((response) => response.json())
@@ -72,7 +73,8 @@ export function getJadwalById (id) {
       method: 'get',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-access-token': window.localStorage.getItem('auth-key')
       }
     })
     .then((response) => response.json())
@@ -106,7 +108,8 @@ export function getSortedDosen (st) {
       method: 'get',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-access-token': window.localStorage.getItem('auth-key')
       }
     })
     .then((response) => response.json())
@@ -136,7 +139,8 @@ export function addJadwal (jadwal) {
       method: 'post',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-access-token': window.localStorage.getItem('auth-key')
       },
       body: JSON.stringify(jadwal)
     })
@@ -167,7 +171,8 @@ export function updateJadwal (kode, jadwal) {
       method: 'put',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-access-token': window.localStorage.getItem('auth-key')
       },
       body: JSON.stringify(jadwal)
     })
@@ -198,7 +203,8 @@ export function filterJadwal (filter) {
       method: 'post',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-access-token': window.localStorage.getItem('auth-key')
       },
       body: JSON.stringify(filter)
     })

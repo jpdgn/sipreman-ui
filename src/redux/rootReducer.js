@@ -14,6 +14,7 @@ import jadwal from './modules/jadwal'
 import semester from './modules/semester'
 import akademik from './modules/akademik'
 import kehadiran from './modules/kehadiran'
+import login from './modules/login'
 
 export const GET_MAHASISWA_DATA_BY_NIM_SUCCESS = 'GET_MAHASISWA_DATA_BY_NIM_SUCCESS'
 export const GET_DOSEN_BY_NIP_SUCCESS = 'GET_DOSEN_BY_NIP_SUCCESS'
@@ -38,10 +39,11 @@ export default combineReducers({
   semester,
   akademik,
   kehadiran,
+  login,
   counter,
   router,
   form: formReducer.plugin({
-    updateMahasiswaForm: (state, action) => {
+    editMahasiswaForm: (state, action) => {
       switch (action.type) {
         case GET_MAHASISWA_DATA_BY_NIM_SUCCESS:
           return {
@@ -66,7 +68,7 @@ export default combineReducers({
           return state
       }
     },
-    updateDosenForm: (state, action) => {
+    editDosenForm: (state, action) => {
       switch (action.type) {
         case GET_DOSEN_BY_NIP_SUCCESS:
           return {
@@ -86,7 +88,7 @@ export default combineReducers({
           return state
       }
     },
-    updateKelasForm: (state, action) => {
+    editKelasForm: (state, action) => {
       switch (action.type) {
         case GET_KELAS_BY_ID_SUCCESS:
           return {
@@ -99,7 +101,7 @@ export default combineReducers({
           return state
       }
     },
-    updateMataKuliahForm: (state, action) => {
+    editMataKuliahForm: (state, action) => {
       switch (action.type) {
         case GET_MK_BY_ID_SUCCESS:
           return {
@@ -112,7 +114,7 @@ export default combineReducers({
           return state
       }
     },
-    updateProdiForm: (state, action) => {
+    editProdiForm: (state, action) => {
       switch (action.type) {
         case GET_PRODI_BY_ID_SUCCESS:
           return {
@@ -125,7 +127,7 @@ export default combineReducers({
           return state
       }
     },
-    updateJurusanForm: (state, action) => {
+    editJurusanForm: (state, action) => {
       switch (action.type) {
         case GET_JURUSAN_BY_ID_SUCCESS:
           return {
@@ -137,7 +139,7 @@ export default combineReducers({
           return state
       }
     },
-    updateJabatanForm: (state, action) => {
+    editJabatanForm: (state, action) => {
       switch (action.type) {
         case GET_JABATAN_BY_ID_SUCCESS:
           return {
@@ -149,7 +151,7 @@ export default combineReducers({
           return state
       }
     },
-    updateRuanganForm: (state, action) => {
+    editRuanganForm: (state, action) => {
       switch (action.type) {
         case GET_RUANGAN_BY_ID_SUCCESS:
           return {
@@ -166,7 +168,7 @@ export default combineReducers({
           return state
       }
     },
-    updateJadwalForm: (state, action) => {
+    editJadwalForm: (state, action) => {
       switch (action.type) {
         case GET_JADWAL_BY_ID_SUCCESS:
           return {

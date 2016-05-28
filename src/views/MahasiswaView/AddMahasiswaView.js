@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import { connect } from 'react-redux'
 import Menu from '../../components/Menu/Menu'
 import TopMenu from '../../components/Menu/TopMenu'
-import NewMahasiswaForm from '../../components/Mahasiswa/NewMahasiswaForm'
+import AddMahasiswaForm from '../../components/Mahasiswa/AddMahasiswaForm'
 
 import { getKelas } from '../../redux/modules/kelas'
 import { getSemester } from '../../redux/modules/semester'
@@ -41,7 +41,7 @@ export class AddMahasiswaView extends Component {
         <div className='row'>
           <div className='ui grid container'>
             <Menu />
-            <NewMahasiswaForm
+            <AddMahasiswaForm
               isLoading={this.props.isLoading}
               message={this.props.message}
               kelas={this.props.kelas}

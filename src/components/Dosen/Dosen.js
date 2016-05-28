@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
-import NewDosenForm from './NewDosenForm'
+import AddDosenForm from './AddDosenForm'
 
 class Dosen extends React.Component {
   static propTypes = {
@@ -19,11 +19,11 @@ class Dosen extends React.Component {
     var loader = <div className='ui active inverted dimmer'>
       <div className='ui text loader'>Loading</div>
     </div>
-    if (this.props.data) {
+    if (this.props.data && this.props.data.data) {
       var listDosen = this.props.data.data
       for (var i = 0; i < listDosen.length; i++) {
         row.push(
-          <tr>
+          <tr key={i}>
             <td><Link to={'/dosen/' + listDosen[i].nip}>{listDosen[i].nip}</Link></td>
             <td>{listDosen[i].nama_dosen}</td>
             <td>{listDosen[i].email}</td>
