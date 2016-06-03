@@ -133,6 +133,7 @@ function updateDosenStart () {
   }
 }
 function updateDosenFinish (result) {
+  console.log(result)
   return {
     type: UPDATE_DOSEN_FINISH,
     data: result
@@ -145,7 +146,8 @@ export function updateDosen (nip, dosen) {
       method: 'put',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-access-token': window.localStorage.getItem('auth-key')
       },
       body: JSON.stringify(dosen)
     })

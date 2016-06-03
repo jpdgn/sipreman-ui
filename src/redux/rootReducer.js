@@ -82,6 +82,7 @@ export default combineReducers({
             bulan: { value: action.bulan },
             tahun: { value: action.tahun },
             alamatRumah: { value: action.data.alamat_rumah },
+            alamatTinggal: { value: action.data.alamat_tinggal },
             deviceId: { value: action.data.device_id }
           }
         default:

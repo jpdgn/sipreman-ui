@@ -192,6 +192,7 @@ export function nimOnDelete (nim) {
 // ------------------------------------
 let initialState = {
   isLoading: false,
+  onUpdate: false,
   successUpdate: false
 }
 
@@ -218,18 +219,21 @@ export default function mahasiswaReducers (state = initialState, action) {
       })
     case UPDATE_MAHASISWA_START:
       return Object.assign({}, state, {
-        isLoading: true
+        isLoading: true,
+        onUpdate: false
       })
     case UPDATE_MAHASISWA_SUCCESS:
       return Object.assign({}, state, {
         isLoading: false,
         successUpdate: true,
+        onUpdate: true,
         message: action.message
       })
     case UPDATE_MAHASISWA_FAILED:
       return Object.assign({}, state, {
         isLoading: false,
         successUpdate: false,
+        onUpdate: true,
         message: action.message
       })
     case ADD_MAHASISWA_START:
