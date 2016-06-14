@@ -4,7 +4,7 @@ import { getSortedDosen } from '../../redux/modules/kehadiran'
 import { filterKehadiran } from '../../redux/modules/kehadiran'
 
 class Kehadiran extends React.Component {
-  constructor(props, context) {
+  constructor (props, context) {
     super(props, context)
 
     this.state = {
@@ -49,8 +49,8 @@ class Kehadiran extends React.Component {
     </div>
     if (this.props.data) {
       var listKehadiran = this.props.data.data
-      if(listKehadiran.length < 1) {
-        row =<tr><td colSpan='8' className='center aligned'><span>Tidak ada data</span></td></tr>
+      if (listKehadiran.length < 1) {
+        row = <tr><td colSpan='8' className='center aligned'><span>Tidak ada data</span></td></tr>
       }
       for (var i = 0; i < listKehadiran.length; i++) {
         row.push(

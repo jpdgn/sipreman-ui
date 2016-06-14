@@ -4,7 +4,7 @@ import { getSortedDosen } from '../../redux/modules/jadwal'
 import { filterJadwal } from '../../redux/modules/jadwal'
 
 class Jadwal extends React.Component {
-  constructor(props, context) {
+  constructor (props, context) {
     super(props, context)
 
     this.state = {
@@ -75,8 +75,8 @@ class Jadwal extends React.Component {
     </div>
     if (this.props.data) {
       var listJadwal = this.props.data.data
-      if(listJadwal.length < 1) {
-        row =<tr><td colSpan='8' className='center aligned'><span>Tidak ada data</span></td></tr>
+      if (listJadwal.length < 1) {
+        row = <tr><td colSpan='8' className='center aligned'><span>Tidak ada data</span></td></tr>
       }
       for (var i = 0; i < listJadwal.length; i++) {
         row.push(

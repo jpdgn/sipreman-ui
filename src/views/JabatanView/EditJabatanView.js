@@ -34,7 +34,7 @@ export class EditJabatanView extends Component {
             <EditJabatanForm
               data={this.props.data}
               isLoading={this.props.isLoading}
-              message={this.props.message}/>
+              message={this.props.message} />
           </div>
         </div>
       </div>

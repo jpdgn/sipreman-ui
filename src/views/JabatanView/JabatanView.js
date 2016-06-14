@@ -24,11 +24,11 @@ export class JabatanView extends Component {
   render () {
     return (
       <div>
-        <TopMenu/>
+        <TopMenu />
         <div className='row'>
           <div className='ui grid container'>
-            <Menu/>
-            <Jabatan data={this.props.data} isLoading={this.props.isLoading}/>
+            <Menu />
+            <Jabatan data={this.props.data} isLoading={this.props.isLoading} />
           </div>
         </div>
       </div>

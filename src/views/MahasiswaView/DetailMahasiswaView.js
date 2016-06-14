@@ -46,7 +46,7 @@ export class DetailMahasiswaView extends Component {
     this.props.dispatch(getAkademik())
   }
   render () {
-    if(this.props.data) {
+    if (this.props.data) {
       var dataMahasiswa = this.props.data
     }
     return (
@@ -60,12 +60,12 @@ export class DetailMahasiswaView extends Component {
               <div className='row'>
                 <div className='col-md-6'>
                   <div className='tab-content'>
-                    <div className="tab-pane active" id="description-logo">
-                      <div className="card">
-                        <div className="header">
-                            <h4 className="title">Informasi Diri</h4>
+                    <div className='tab-pane active' id='description-logo'>
+                      <div className='card'>
+                        <div className='header'>
+                            <h4 className='title'>Informasi Diri</h4>
                         </div>
-                        <div className="content">
+                        <div className='content'>
                           <div className='row'>
                             <div className='form-group col-md-6'>
                               <label>Nama</label>
@@ -99,12 +99,12 @@ export class DetailMahasiswaView extends Component {
                 </div>
                 <div className='col-md-6'>
                   <div className='tab-content'>
-                    <div className="tab-pane active" id="description-logo">
-                      <div className="card">
-                        <div className="header">
-                            <h4 className="title">Detil Pendidikan</h4>
+                    <div className='tab-pane active' id='description-logo'>
+                      <div className='card'>
+                        <div className='header'>
+                            <h4 className='title'>Detil Pendidikan</h4>
                         </div>
-                        <div className="content">
+                        <div className='content'>
                           <div className='row'>
                             <div className='form-group col-md-6'>
                               <label>NIM</label>

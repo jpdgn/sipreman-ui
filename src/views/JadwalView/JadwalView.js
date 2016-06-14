@@ -28,7 +28,7 @@ const mapStateToProps = (state) => ({
 })
 
 export class JadwalView extends Component {
-  constructor(props, context) {
+  constructor (props, context) {
     super(props, context)
 
     this.state = {
@@ -103,8 +103,8 @@ export class JadwalView extends Component {
     var days = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat']
     if (this.props.data) {
       var listJadwal = this.props.data.data
-      if(listJadwal.length < 1) {
-        row =<tr><td colSpan='8' className='center aligned'><span>Tidak ada data</span></td></tr>
+      if (listJadwal.length < 1) {
+        row = <tr><td colSpan='8' className='center aligned'><span>Tidak ada data</span></td></tr>
       }
       for (var i = 0; i < listJadwal.length; i++) {
         row.push(

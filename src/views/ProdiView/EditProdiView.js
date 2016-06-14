@@ -39,7 +39,7 @@ export class EditProdiView extends Component {
               data={this.props.data}
               isLoading={this.props.isLoading}
               message={this.props.message}
-              jurusan={this.props.jurusan}/>
+              jurusan={this.props.jurusan} />
           </div>
         </div>
       </div>

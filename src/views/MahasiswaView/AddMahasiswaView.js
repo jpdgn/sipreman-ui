@@ -46,7 +46,7 @@ export class AddMahasiswaView extends Component {
               message={this.props.message}
               kelas={this.props.kelas}
               semester={this.props.semester}
-              akademik={this.props.akademik}/>
+              akademik={this.props.akademik} />
           </div>
         </div>
       </div>

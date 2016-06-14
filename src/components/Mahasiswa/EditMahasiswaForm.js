@@ -61,7 +61,7 @@ class EditMahasiswaForm extends React.Component {
     var kelasOption = []
     var semesterOption = []
     var akademikOption = []
-    if(kelasData && semesterData && akademikData) {
+    if (kelasData && semesterData && akademikData) {
       for (var i = 1; i <= 31; i++) {
         tanggalLahirOption.push(<option value={i < 10 ? '0' + i : i} key={i}>{i < 10 ? '0' + i : i}</option>)
       }

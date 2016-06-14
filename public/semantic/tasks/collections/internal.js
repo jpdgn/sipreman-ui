@@ -1,4 +1,4 @@
-/*******************************
+/** *****************************
     Internal Task Collection
 *******************************/
 
@@ -7,50 +7,50 @@
    these do not build fresh from **src**
 */
 
-module.exports = function(gulp) {
+module.exports = function (gulp) {
 
   var
     // node dependencies
-    fs         = require('fs'),
-    chmod      = require('gulp-chmod'),
-    concat     = require('gulp-concat'),
-    concatCSS  = require('gulp-concat-css'),
-    clone      = require('gulp-clone'),
-    dedupe     = require('gulp-dedupe'),
-    gulpif     = require('gulp-if'),
-    header     = require('gulp-header'),
-    less       = require('gulp-less'),
-    minifyCSS  = require('gulp-minify-css'),
-    plumber    = require('gulp-plumber'),
-    print      = require('gulp-print'),
-    rename     = require('gulp-rename'),
-    replace    = require('gulp-replace'),
-    uglify     = require('gulp-uglify'),
+    fs = require('fs'),
+    chmod = require('gulp-chmod'),
+    concat = require('gulp-concat'),
+    concatCSS = require('gulp-concat-css'),
+    clone = require('gulp-clone'),
+    dedupe = require('gulp-dedupe'),
+    gulpif = require('gulp-if'),
+    header = require('gulp-header'),
+    less = require('gulp-less'),
+    minifyCSS = require('gulp-minify-css'),
+    plumber = require('gulp-plumber'),
+    print = require('gulp-print'),
+    rename = require('gulp-rename'),
+    replace = require('gulp-replace'),
+    uglify = require('gulp-uglify'),
 
     // user config
-    config     = require('./../config/user'),
+    config = require('./../config/user'),
     docsConfig = require('./../config/docs'),
 
     // install config
-    tasks      = require('./../config/tasks'),
-    release    = require('./../config/project/release'),
+    tasks = require('./../config/tasks'),
+    release = require('./../config/project/release'),
 
     // shorthand
-    globs      = config.globs,
-    assets     = config.paths.assets,
-    output     = config.paths.output,
+    globs = config.globs,
+    assets = config.paths.assets,
+    output = config.paths.output,
 
-    banner     = tasks.banner,
-    filenames  = tasks.filenames,
-    log        = tasks.log,
-    settings   = tasks.settings
-  ;
+    banner = tasks.banner,
+    filenames = tasks.filenames,
+    log = tasks.log,
+    settings = tasks.settings
 
-  /*--------------
+
+  /* --------------
       Packaged
   ---------------*/
 
-  gulp.task('package uncompressed css', function() {
+  gulp.task('package uncompressed css', function () {
     return gulp.src(output.uncompressed + '/**/' + globs.components + globs.ignored + '.css')
       .pipe(plumber())
       .pipe(dedupe())
@@ -60,10 +60,10 @@ module.exports = function(gulp) {
         .pipe(header(banner, settings.header))
         .pipe(gulp.dest(output.packaged))
         .pipe(print(log.created))
-    ;
-  });
 
-  gulp.task('package compressed css', function() {
+  })
+
+  gulp.task('package compressed css', function () {
     return gulp.src(output.uncompressed + '/**/' + globs.components + globs.ignored + '.css')
       .pipe(plumber())
       .pipe(dedupe())
@@ -74,10 +74,10 @@ module.exports = function(gulp) {
         .pipe(header(banner, settings.header))
         .pipe(gulp.dest(output.packaged))
         .pipe(print(log.created))
-    ;
-  });
 
-  gulp.task('package uncompressed js', function() {
+  })
+
+  gulp.task('package uncompressed js', function () {
     return gulp.src(output.uncompressed + '/**/' + globs.components + globs.ignored + '.js')
       .pipe(plumber())
       .pipe(dedupe())
@@ -87,10 +87,10 @@ module.exports = function(gulp) {
         .pipe(gulpif(config.hasPermission, chmod(config.permission)))
         .pipe(gulp.dest(output.packaged))
         .pipe(print(log.created))
-    ;
-  });
 
-  gulp.task('package compressed js', function() {
+  })
+
+  gulp.task('package compressed js', function () {
     return gulp.src(output.uncompressed + '/**/' + globs.components + globs.ignored + '.js')
       .pipe(plumber())
       .pipe(dedupe())
@@ -101,14 +101,14 @@ module.exports = function(gulp) {
         .pipe(gulpif(config.hasPermission, chmod(config.permission)))
         .pipe(gulp.dest(output.packaged))
         .pipe(print(log.created))
-    ;
-  });
 
-  /*--------------
+  })
+
+  /* --------------
         RTL
   ---------------*/
 
-  if(config.rtl) {
+  if (config.rtl) {
 
     gulp.task('package uncompressed rtl css', function () {
       return gulp.src(output.uncompressed + '/**/' + globs.components + globs.ignoredRTL + '.rtl.css')
@@ -119,8 +119,8 @@ module.exports = function(gulp) {
           .pipe(header(banner, settings.header))
           .pipe(gulp.dest(output.packaged))
           .pipe(print(log.created))
-      ;
-    });
+
+    })
 
     gulp.task('package compressed rtl css', function () {
       return gulp.src(output.uncompressed + '/**/' + globs.components + globs.ignoredRTL + '.rtl.css')
@@ -132,10 +132,10 @@ module.exports = function(gulp) {
           .pipe(header(banner, settings.header))
           .pipe(gulp.dest(output.packaged))
           .pipe(print(log.created))
-      ;
-    });
 
-    gulp.task('package uncompressed docs css', function() {
+    })
+
+    gulp.task('package uncompressed docs css', function () {
       return gulp.src(output.uncompressed + '/**/' + globs.components + globs.ignored + '.css')
         .pipe(dedupe())
         .pipe(plumber())
@@ -144,10 +144,10 @@ module.exports = function(gulp) {
           .pipe(gulpif(config.hasPermission, chmod(config.permission)))
           .pipe(gulp.dest(output.packaged))
           .pipe(print(log.created))
-      ;
-    });
 
-    gulp.task('package compressed docs css', function() {
+    })
+
+    gulp.task('package compressed docs css', function () {
       return gulp.src(output.uncompressed + '/**/' + globs.components + globs.ignored + '.css')
         .pipe(dedupe())
         .pipe(plumber())
@@ -158,20 +158,20 @@ module.exports = function(gulp) {
           .pipe(gulpif(config.hasPermission, chmod(config.permission)))
           .pipe(gulp.dest(output.packaged))
           .pipe(print(log.created))
-      ;
-    });
+
+    })
 
   }
 
-  /*--------------
+  /* --------------
         Docs
   ---------------*/
 
   var
     docsOutput = docsConfig.paths.output
-  ;
 
-  gulp.task('package uncompressed docs css', function() {
+
+  gulp.task('package uncompressed docs css', function () {
     return gulp.src(docsOutput.uncompressed + '/**/' + globs.components + globs.ignored + '.css')
       .pipe(dedupe())
       .pipe(plumber())
@@ -180,10 +180,10 @@ module.exports = function(gulp) {
         .pipe(gulpif(config.hasPermission, chmod(config.permission)))
         .pipe(gulp.dest(docsOutput.packaged))
         .pipe(print(log.created))
-    ;
-  });
 
-  gulp.task('package compressed docs css', function() {
+  })
+
+  gulp.task('package compressed docs css', function () {
     return gulp.src(docsOutput.uncompressed + '/**/' + globs.components + globs.ignored + '.css')
       .pipe(dedupe())
       .pipe(plumber())
@@ -194,10 +194,10 @@ module.exports = function(gulp) {
         .pipe(gulpif(config.hasPermission, chmod(config.permission)))
         .pipe(gulp.dest(docsOutput.packaged))
         .pipe(print(log.created))
-    ;
-  });
 
-  gulp.task('package uncompressed docs js', function() {
+  })
+
+  gulp.task('package uncompressed docs js', function () {
     return gulp.src(docsOutput.uncompressed + '/**/' + globs.components + globs.ignored + '.js')
       .pipe(dedupe())
       .pipe(plumber())
@@ -207,10 +207,10 @@ module.exports = function(gulp) {
         .pipe(gulpif(config.hasPermission, chmod(config.permission)))
         .pipe(gulp.dest(docsOutput.packaged))
         .pipe(print(log.created))
-    ;
-  });
 
-  gulp.task('package compressed docs js', function() {
+  })
+
+  gulp.task('package compressed docs js', function () {
     return gulp.src(docsOutput.uncompressed + '/**/' + globs.components + globs.ignored + '.js')
       .pipe(dedupe())
       .pipe(plumber())
@@ -221,7 +221,7 @@ module.exports = function(gulp) {
         .pipe(gulpif(config.hasPermission, chmod(config.permission)))
         .pipe(gulp.dest(docsOutput.packaged))
         .pipe(print(log.created))
-    ;
-  });
 
-};
+  })
+
+}

@@ -31,7 +31,7 @@ export class AddJurusanView extends Component {
             <AddJurusanForm
               data={this.props.data}
               isLoading={this.props.isLoading}
-              message={this.props.message}/>
+              message={this.props.message} />
           </div>
         </div>
       </div>

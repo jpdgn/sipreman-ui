@@ -126,7 +126,7 @@ function addJadwalStart () {
   }
 }
 function addJadwalFinish (result) {
-  console.log(result);
+  console.log(result)
   return {
     type: ADD_JADWAL_SUCCESS,
     data: result
@@ -158,7 +158,7 @@ function updateJadwalStart () {
   }
 }
 function updateJadwalFinish (result) {
-  console.log(result);
+  console.log(result)
   return {
     type: UPDATE_JADWAL_SUCCESS,
     data: result
@@ -190,7 +190,7 @@ function filterJadwalStart () {
   }
 }
 function filterJadwalFinish (result) {
-  console.log(result);
+  console.log(result)
   return {
     type: FILTER_JADWAL_SUCCESS,
     data: result

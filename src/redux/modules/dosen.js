@@ -101,7 +101,7 @@ function addDosenFinish (result) {
   // var bulan = splitTanggalLahir[1]
   // var tanggal = splitTanggalLahir[2]
   return {
-    type: ADD_DOSEN_FINISH,
+    type: ADD_DOSEN_FINISH
     // data: result.data[0],
     // tanggal: tanggal,
     // bulan: bulan,

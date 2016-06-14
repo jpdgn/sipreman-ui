@@ -71,7 +71,7 @@ class Dosen extends React.Component {
             </tr>
           </tfoot>
         </table>
-        {/*<div className='ui long modal active'>
+        {/* <div className='ui long modal active'>
           <div className='header'>Tambah Data Dosen</div>
           <div className='content'>
             <NewDosenForm

@@ -80,9 +80,9 @@ export default (store) => (
 )
 
 function requireAuth (nextState, replaceState) {
-    const token = window.localStorage.getItem('auth-key')
-      if (!token)
-        replaceState({
-          nextPathname: nextState.location.pathname
-        }, '/login')
+  const token = window.localStorage.getItem('auth-key')
+  if (!token)
+    replaceState({
+      nextPathname: nextState.location.pathname
+    }, '/login')
 }

@@ -45,7 +45,7 @@ class Mahasiswa extends React.Component {
             <td>{listMahasiswa[i].kelas}</td>
             <td>{listMahasiswa[i].akademik}</td>
             <td>{listMahasiswa[i].semester}</td>
-            <td><a onClick={this.handleHapusData.bind(this, listMahasiswa[i].nim)}><i className='trash icon'/></a></td>
+            <td><a onClick={this.handleHapusData.bind(this, listMahasiswa[i].nim)}><i className='trash icon' /></a></td>
           </tr>
         )
       }
@@ -114,7 +114,7 @@ class Mahasiswa extends React.Component {
               <input
                 {...nimOnDelete}
                 type='text'
-                placeholder='Masukkan NIM'/>
+                placeholder='Masukkan NIM' />
                 {nimOnDelete.error && <span className='ui red'>{nimOnDelete.error}</span>}
             </div>
           </div>

@@ -39,7 +39,7 @@ export class AddKelasView extends Component {
                   <AddKelasForm
                     isLoading={this.props.isLoading}
                     message={this.props.message}
-                    prodi={this.props.prodi}/>
+                    prodi={this.props.prodi} />
                 </div>
               </div>
             </div>

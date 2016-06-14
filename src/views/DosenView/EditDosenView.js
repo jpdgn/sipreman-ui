@@ -91,30 +91,30 @@ export class EditDosenView extends Component {
                     <div className='content'>
                       <div className='row' onSubmit={this.handleSubmit}>
                         <div className='col-md-4'>
-                          <div className="form-group">
+                          <div className='form-group'>
                             <label>NIP</label>
                             <input
                               {...nip}
-                              type="text"
-                              className="form-control" />
+                              type='text'
+                              className='form-control' />
                           </div>
                         </div>
                         <div className='col-md-4'>
-                          <div className="form-group">
+                          <div className='form-group'>
                             <label>Nama</label>
                             <input
                               {...nama}
-                              type="text"
-                              className="form-control" />
+                              type='text'
+                              className='form-control' />
                           </div>
                         </div>
                         <div className='col-md-4'>
-                          <div className="form-group">
+                          <div className='form-group'>
                             <label>Email</label>
                             <input
                               {...email}
-                              type="text"
-                              className="form-control" />
+                              type='text'
+                              className='form-control' />
                           </div>
                         </div>
                         <div className='col-md-3'>
@@ -132,7 +132,7 @@ export class EditDosenView extends Component {
                             <label>No Hp</label>
                             <input
                               {...noHp}
-                              className='form-control'/>
+                              className='form-control' />
                           </div>
                         </div>
                         <div className='col-md-3'>
@@ -141,7 +141,7 @@ export class EditDosenView extends Component {
                             <input
                               {...noHp}
                               type='text'
-                              className='form-control'/>
+                              className='form-control' />
                           </div>
                         </div>
                         <div className='col-md-3'>
@@ -192,7 +192,7 @@ export class EditDosenView extends Component {
                             <input
                               {...alamatRumah}
                               type='text'
-                              className='form-control'/>
+                              className='form-control' />
                           </div>
                         </div>
                         <div className='col-md-6'>
@@ -201,7 +201,7 @@ export class EditDosenView extends Component {
                             <input
                               {...alamatTinggal}
                               type='text'
-                              className='form-control'/>
+                              className='form-control' />
                           </div>
                         </div>
                         <div className='col-md-6'>
@@ -210,22 +210,22 @@ export class EditDosenView extends Component {
                             <input
                               {...deviceId}
                               type='text'
-                              className='form-control'/>
+                              className='form-control' />
                           </div>
                         </div>
                         <div className='footer text-center'>
                           <button
-                            type="submit"
-                            className="btn btn-fill btn-info btn-wd"
+                            type='submit'
+                            className='btn btn-fill btn-info btn-wd'
                             onClick={this.props.handleSubmit(this.ubahData)}>Simpan</button>
                         </div>
                       </div>
                     </div>
                     <div
-                      data-notify="container"
-                      className={"col-xs-11 col-sm-4 alert alert-info alert-with-icon animated fadeInDown" + (this.props.onUpdate ? '' : ' hide')}
-                      role="alert"
-                      data-notify-position="bottom-center"
+                      data-notify='container'
+                      className={'col-xs-11 col-sm-4 alert alert-info alert-with-icon animated fadeInDown' + (this.props.onUpdate ? '' : ' hide')}
+                      role='alert'
+                      data-notify-position='bottom-center'
                       style={{display: 'inline-block',
                         margin:' 0 auto',
                         position: 'fixed',
@@ -235,22 +235,22 @@ export class EditDosenView extends Component {
                         left: '0',
                         right: '0'}}>
                       <button
-                        type="button"
-                        aria-hidden="true"
-                        className="close"
-                        data-notify="dismiss"
+                        type='button'
+                        aria-hidden='true'
+                        className='close'
+                        data-notify='dismiss'
                         style={{position: 'absolute',
                           right: '10',
                           top: '50%',
                           marginTop: '-13',
                           zIndex: '1033'}}>×</button>
-                        <span data-notify="icon" className="pe-7s-gift"></span>
-                        <span data-notify="title"></span>
-                        <span data-notify="message">
+                        <span data-notify='icon' className='pe-7s-gift'></span>
+                        <span data-notify='title'></span>
+                        <span data-notify='message'>
                         <b>{this.props.successUpdate ? 'Berhasil perbarui data' : 'Gagal perbarui data'}</b></span>
-                        <a href="#"
-                          target="_blank"
-                          data-notify="url"></a>
+                        <a href='#'
+                          target='_blank'
+                          data-notify='url'></a>
                         </div>
                   </div>
                 </div>

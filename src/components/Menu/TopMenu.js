@@ -2,15 +2,15 @@ import React from 'react'
 // import { Link } from 'react-router'
 
 class Menu extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {openMenu: false}
   }
 
-  openMenu() {
+  openMenu () {
     console.log('hi')
     console.log(this.state.openMenu)
-    if(this.state.openMenu) {
+    if (this.state.openMenu) {
       this.setState({openMenu: false})
     } else {
       this.setState({openMenu: true})
@@ -19,35 +19,35 @@ class Menu extends React.Component {
 
   render () {
     return (
-      <nav className="navbar navbar-default">
-        <div className="container-fluid">
-          <div className="navbar-header">
-            <button type="button" className="navbar-toggle" data-toggle="collapse">
-              <span className="sr-only">Toggle navigation</span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
+      <nav className='navbar navbar-default'>
+        <div className='container-fluid'>
+          <div className='navbar-header'>
+            <button type='button' className='navbar-toggle' data-toggle='collapse'>
+              <span className='sr-only'>Toggle navigation</span>
+              <span className='icon-bar'></span>
+              <span className='icon-bar'></span>
+              <span className='icon-bar'></span>
             </button>
           </div>
-          <div className="collapse navbar-collapse">
-            <ul className="nav navbar-nav navbar-right">
-              <li className={"dropdown dropdown-with-icons" + (this.state.openMenu ? " open" : "")}>
-                <a onClick={this.openMenu.bind(this)} className="dropdown-toggle" data-toggle="dropdown">
-                  <i className="fa fa-list"></i>
-                  <p className="hidden-md hidden-lg">
+          <div className='collapse navbar-collapse'>
+            <ul className='nav navbar-nav navbar-right'>
+              <li className={'dropdown dropdown-with-icons' + (this.state.openMenu ? ' open' : '')}>
+                <a onClick={this.openMenu.bind(this)} className='dropdown-toggle' data-toggle='dropdown'>
+                  <i className='fa fa-list'></i>
+                  <p className='hidden-md hidden-lg'>
                     More
-                    <b className="caret"></b>
+                    <b className='caret'></b>
                   </p>
                 </a>
-                <ul className="dropdown-menu dropdown-with-icons">
+                <ul className='dropdown-menu dropdown-with-icons'>
                   <li>
-                    <a href="#">
-                      <i className="pe-7s-lock"></i> Lock Screen
+                    <a href='#'>
+                      <i className='pe-7s-lock'></i> Lock Screen
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-danger">
-                      <i className="pe-7s-close-circle"></i>
+                    <a href='#' className='text-danger'>
+                      <i className='pe-7s-close-circle'></i>
                         Log out
                     </a>
                   </li>

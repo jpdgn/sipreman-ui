@@ -51,10 +51,10 @@ export class KehadiranView extends Component {
   render () {
     return (
       <div>
-        <TopMenu/>
+        <TopMenu />
         <div className='row'>
           <div className='ui grid container'>
-            <Menu/>
+            <Menu />
             <Kehadiran
               data={this.props.data}
               isLoading={this.props.isLoading}

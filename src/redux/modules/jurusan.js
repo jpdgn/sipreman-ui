@@ -133,7 +133,7 @@ export function updateJurusan (kode, jurusan) {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-        body: JSON.stringify(jurusan)
+      body: JSON.stringify(jurusan)
     })
     .then((response) => response.json())
     .then((json) => dispatch(updateJurusanFinish(json)))

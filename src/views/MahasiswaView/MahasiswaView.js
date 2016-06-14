@@ -34,7 +34,7 @@ export class MahasiswaView extends Component {
     dispatch(nimOnDelete(nim))
   }
 
-  delete() {
+  delete () {
     console.log('haii')
     swal('Hello')
   }

@@ -33,7 +33,7 @@ export class EditRuanganView extends Component {
             <EditRuanganForm
               data={this.props.data}
               isLoading={this.props.isLoading}
-              message={this.props.message}/>
+              message={this.props.message} />
           </div>
         </div>
       </div>

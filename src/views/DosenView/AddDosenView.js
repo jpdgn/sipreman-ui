@@ -39,7 +39,7 @@ export class AddDosenView extends Component {
                   <AddDosenForm
                     isLoading={this.props.isLoading}
                     message={this.props.message}
-                    jabatan={this.props.jabatan}/>
+                    jabatan={this.props.jabatan} />
                 </div>
               </div>
             </div>

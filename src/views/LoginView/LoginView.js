@@ -19,7 +19,7 @@ export class LoginView extends Component {
   }
 
   componentWillMount () {
-    if(this.props.token) {
+    if (this.props.token) {
       this.props.history.pushState(null, '/')
     }
   }
@@ -31,8 +31,8 @@ export class LoginView extends Component {
       user: this.props.values.username,
       password: this.props.values.password
     }
-    if (this.props.location.state && this.props.location.state.nextPathname){
-        nextPath = this.props.location.state.nextPathname
+    if (this.props.location.state && this.props.location.state.nextPathname) {
+      nextPath = this.props.location.state.nextPathname
     }
     console.log(loginData)
     console.log(nextPath)
@@ -44,38 +44,38 @@ export class LoginView extends Component {
   render () {
     const {fields: {username, password}} = this.props
     return (
-        <div className="wrapper wrapper-full-page">
-          <div className="full-page login-page" data-color="green">
-            <div className="content">
-              <div className="container">
-                <div className="row">
-                  <div className="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+        <div className='wrapper wrapper-full-page'>
+          <div className='full-page login-page' data-color='green'>
+            <div className='content'>
+              <div className='container'>
+                <div className='row'>
+                  <div className='col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3'>
                     <form>
-                      <div className="card">
-                        <div className="header text-center">Login</div>
-                        <div className="content">
-                          <div className="form-group">
+                      <div className='card'>
+                        <div className='header text-center'>Login</div>
+                        <div className='content'>
+                          <div className='form-group'>
 
                             <label>Username</label>
                             <input
                               {...username}
-                              type="text"
-                              placeholder="Enter username"
-                              className="form-control" />
+                              type='text'
+                              placeholder='Enter username'
+                              className='form-control' />
                           </div>
-                          <div className="form-group">
+                          <div className='form-group'>
                             <label>Password</label>
                             <input
                               {...password}
-                              type="password"
-                              placeholder="Password"
-                              className="form-control" />
+                              type='password'
+                              placeholder='Password'
+                              className='form-control' />
                           </div>
                         </div>
-                        <div className="footer text-center">
+                        <div className='footer text-center'>
                             <button
-                              type="submit"
-                              className="btn btn-fill btn-warning btn-wd"
+                              type='submit'
+                              className='btn btn-fill btn-warning btn-wd'
                               onClick={this.props.handleSubmit(this.submitLogin)}>Login</button>
                         </div>
                       </div>
@@ -101,7 +101,7 @@ export class LoginView extends Component {
   }
 }
 
-export default connect(mapStateToProps) (reduxForm({
+export default connect(mapStateToProps)(reduxForm({
   form: form,
   fields
 })(LoginView))

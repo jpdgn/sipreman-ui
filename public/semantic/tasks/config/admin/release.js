@@ -1,4 +1,4 @@
-/*******************************
+/** *****************************
         Release Settings
 *******************************/
 
@@ -21,7 +21,7 @@ module.exports = {
     meteor   : {
       css       : './tasks/config/admin/templates/css-package.js',
       component : './tasks/config/admin/templates/component-package.js',
-      less      : './tasks/config/admin/templates/less-package.js',
+      less      : './tasks/config/admin/templates/less-package.js'
     },
     readme : './tasks/config/admin/templates/README.md',
     notes  : './RELEASE-NOTES.md'
@@ -108,4 +108,4 @@ module.exports = {
     'transition',
     'visibility'
   ]
-};
+}

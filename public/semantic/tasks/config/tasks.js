@@ -1,8 +1,8 @@
 var
   console = require('better-console'),
-  config  = require('./user'),
+  config = require('./user'),
   release = require('./project/release')
-;
+
 
 
 module.exports = {
@@ -10,11 +10,11 @@ module.exports = {
   banner : release.banner,
 
   log: {
-    created: function(file) {
-      return 'Created: ' + file;
+    created: function (file) {
+      return 'Created: ' + file
     },
-    modified: function(file) {
-      return 'Modified: ' + file;
+    modified: function (file) {
+      return 'Modified: ' + file
     }
   },
 
@@ -34,7 +34,7 @@ module.exports = {
       // remove all comments from config files (.variable)
       variables : {
         in  : /(\/\*[\s\S]+?\*\/+)[\s\S]+?\/\* End Config \*\//,
-        out : '$1',
+        out : '$1'
       },
 
       // add version to first comment
@@ -79,7 +79,7 @@ module.exports = {
 
     plumber: {
       less: {
-        errorHandler: function(error) {
+        errorHandler: function (error) {
           var
             regExp = {
               variable : /@(\S.*?)\s/,
@@ -88,25 +88,25 @@ module.exports = {
             },
             theme,
             element
-          ;
-          if(error.filename.match(/theme.less/)) {
-            if(error.line == 5) {
-              element  = regExp.variable.exec(error.message)[1];
-              if(element) {
-                console.error('Missing theme.config value for ', element);
+
+          if (error.filename.match(/theme.less/)) {
+            if (error.line == 5) {
+              element = regExp.variable.exec(error.message)[1]
+              if (element) {
+                console.error('Missing theme.config value for ', element)
               }
-              console.error('Most likely new UI was added in an update. You will need to add missing elements from theme.config.example');
+              console.error('Most likely new UI was added in an update. You will need to add missing elements from theme.config.example')
             }
-            if(error.line == 46) {
-              element = regExp.element.exec(error.message)[1];
-              theme   = regExp.theme.exec(error.message)[1];
-              console.error(theme + ' is not an available theme for ' + element);
+            if (error.line == 46) {
+              element = regExp.element.exec(error.message)[1]
+              theme = regExp.theme.exec(error.message)[1]
+              console.error(theme + ' is not an available theme for ' + element)
             }
           }
           else {
-            console.log(error);
+            console.log(error)
           }
-          this.emit('end');
+          this.emit('end')
         }
       }
     },
@@ -157,4 +157,4 @@ module.exports = {
     }
 
   }
-};
+}

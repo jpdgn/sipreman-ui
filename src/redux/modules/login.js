@@ -26,7 +26,7 @@ function loginStart () {
 }
 function loginFinish (result) {
   console.log(result)
-  if(result.success) {
+  if (result.success) {
     var token = result.token
     window.localStorage.setItem('auth-key', token)
     return {
@@ -54,7 +54,7 @@ export function login (login, redirect) {
     .then((response) => response.json())
     .then((json) => dispatch(loginFinish(json)))
     .then(() => {
-      if(redirect) redirect()
+      if (redirect) redirect()
     })
   }
 }
@@ -69,7 +69,7 @@ function authStart () {
 }
 function authFinish (result) {
   console.log(result)
-  if(result.error) {
+  if (result.error) {
     return {
       type: CHECK_EXPIRED,
       data: result.message

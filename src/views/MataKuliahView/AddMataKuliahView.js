@@ -33,7 +33,7 @@ export class AddMataKuliahView extends Component {
                 <div className='ui segment'>
                   <AddMataKuliahForm
                     isLoading={this.props.isLoading}
-                    message={this.props.message}/>
+                    message={this.props.message} />
                 </div>
               </div>
             </div>
